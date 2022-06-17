@@ -20,7 +20,7 @@ const assembleTranslationLanguages = ({ enLabel = '', noLabel = '' }) => {
   return LANGUAGES?.map((lang) => {
     const languageShortCodeToStateMap = {
       en: enLabel,
-      no: noLabel
+      no: noLabel || enLabel
     }
 
     return {
