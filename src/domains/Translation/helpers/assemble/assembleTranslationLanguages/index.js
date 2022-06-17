@@ -1,0 +1,3 @@
+import assembleTranslationLanguages from './assembleTranslationLanguages'
+
+export default assembleTranslationLanguages

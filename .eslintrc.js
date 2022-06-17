@@ -27,6 +27,7 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     'no-eval': 'error',
+    'no-unused-vars': 'warn',
     'import/first': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn'
