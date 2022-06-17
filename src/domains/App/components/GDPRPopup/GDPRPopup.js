@@ -71,12 +71,10 @@ const GDPRPopup = () => {
                   <Img src={cookie} width="64" height="64" alt="cookie" />
                 </Col>
                 <Col cw={12} mb={24}>
-                  <Text textAlign="center" whiteSpace="pre-wrap">
+                  <Text textAlign="center">
                     {t(
                       'gdprMessage',
-                      `Application uses cookies to personalize content. By
-                    continuing of using this site, you agree with our cookie
-                    policy.`
+                      `Application uses cookies to personalize content. By continuing of using this site, you agree with our cookie policy.`
                     )}
                   </Text>
                 </Col>

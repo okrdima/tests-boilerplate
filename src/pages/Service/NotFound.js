@@ -69,12 +69,7 @@ const NotFound = () => {
               </Text>
             </Box>
             <Box display="flex" flexDirection={['column', 'row']}>
-              <Button
-                type="primary"
-                size="large"
-                block={[true, false]}
-                onClick={goBack}
-              >
+              <Button type="primary" size="large" block onClick={goBack}>
                 {t('Go back')}
               </Button>
             </Box>

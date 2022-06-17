@@ -61,7 +61,7 @@ const ConfirmEmail = () => {
         </Text>
       </Box>
       <Button
-        block={[true, false]}
+        block
         onClick={() => {
           sendEmailVerification(onError)
         }}
