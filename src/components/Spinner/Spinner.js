@@ -1,20 +1,6 @@
+import { Box, Spin, Text } from '@qonsoll/react-design'
+
 import PropTypes from 'prop-types'
-import { Box, Text, Spin } from '@qonsoll/react-design'
-// import { Spin } from 'antd'
-
-// import { Spin } from 'antd'
-
-// const Spinner = () => {
-//   return (
-//     <Container py={6}>
-//       <Row h="center">
-//         <Col cw="auto">
-//           <Spin />
-//         </Col>
-//       </Row>
-//     </Container>
-//   )
-// }
 
 const Spinner = (props) => {
   const { text, ...rest } = props
