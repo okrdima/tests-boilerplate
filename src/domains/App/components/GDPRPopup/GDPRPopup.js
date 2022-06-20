@@ -42,58 +42,54 @@ const wrapperStyles = {
 const GDPR_FLAG = 'gdpr'
 
 const GDPRPopup = () => {
+  // [ADDITIONAL HOOKS]
   const { t } = useTranslations()
   const history = useHistory()
   const isAcceptedGDPR = JSON.parse(window?.localStorage.getItem(GDPR_FLAG))
-  const [show, setShow] = useState(!isAcceptedGDPR)
-  const redirectToTheCookiesPolicies = () => {
-    history.push(PATHS.SERVICE.GDPR)
-  }
-  const onAccept = () => {
+
+  // [COMPONENT STATE]
+  const [accepted, setAccepted] = useState(isAcceptedGDPR)
+
+  // [HANDLERS]
+  const redirectToTheCookiesPolicies = () => history.push(PATHS.SERVICE.GDPR)
+  const handleAccept = () => {
     localStorage.setItem(GDPR_FLAG, 'true')
-    setShow(false)
+    setAccepted(false)
   }
-  return (
-    <>
-      {show && (
-        <Box {...wrapperStyles}>
-          <CloseWrapper
-            onClick={() => {
-              setShow(false)
-            }}
-          >
-            <CloseOutlined />
-          </CloseWrapper>
-          <Row noGutters v="center">
-            <Col mb={3}>
-              <Row noGutters h="center">
-                <Col cw="auto" mb={24}>
-                  <Img src={cookie} width="64" height="64" alt="cookie" />
-                </Col>
-                <Col cw={12} mb={24}>
-                  <Text textAlign="center">
-                    {t(
-                      'gdprMessage',
-                      `Application uses cookies to personalize content. By continuing of using this site, you agree with our cookie policy.`
-                    )}
-                  </Text>
-                </Col>
-                <Col cw={12}>
-                  <Button block onClick={redirectToTheCookiesPolicies}>
-                    {t('Cookie policy')}
-                  </Button>
-                </Col>
-              </Row>
+
+  return accepted ? null : (
+    <Box {...wrapperStyles}>
+      <CloseWrapper onClick={() => setAccepted(false)}>
+        <CloseOutlined />
+      </CloseWrapper>
+      <Row noGutters v="center">
+        <Col mb={3}>
+          <Row noGutters h="center">
+            <Col cw="auto" mb={24}>
+              <Img src={cookie} width="64" height="64" alt="cookie" />
+            </Col>
+            <Col cw={12} mb={24}>
+              <Text textAlign="center">
+                {t(
+                  'gdprMessage',
+                  `Application uses cookies to personalize content. By continuing of using this site, you agree with our cookie policy.`
+                )}
+              </Text>
             </Col>
             <Col cw={12}>
-              <Button type="primary" block onClick={onAccept}>
-                {t('Accept')}
+              <Button block onClick={redirectToTheCookiesPolicies}>
+                {t('Cookie policy')}
               </Button>
             </Col>
           </Row>
-        </Box>
-      )}
-    </>
+        </Col>
+        <Col cw={12}>
+          <Button type="primary" block onClick={handleAccept}>
+            {t('Accept')}
+          </Button>
+        </Col>
+      </Row>
+    </Box>
   )
 }
 
