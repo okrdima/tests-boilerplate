@@ -1,3 +1,5 @@
+import 'firebase/auth'
+
 import { Box, Text } from '@qonsoll/react-design'
 import { useHistory, useLocation } from 'react-router-dom'
 
@@ -38,9 +40,9 @@ const RoutesRedirect = ({ children }) => {
     /* If the user is logged in, redirect to the config page. If the user is logged out, redirect to
     the logout page. If the user's email is not verified, redirect to the email confirmation page.
     */
-    if (isEmailNotVerified) history.push(PATHS.UNAUTHENTICATED.CONFIRM_EMAIL)
-    else if (isLoggedIn) history.push(PATHS.CONFIG.AFTER_LOGIN)
-    else if (isLoggedOut) history.push(PATHS.CONFIG.AFTER_LOGOUT)
+    isLoggedIn && history.push(PATHS.CONFIG.AFTER_LOGIN)
+    isLoggedOut && history.push(PATHS.CONFIG.AFTER_LOGOUT)
+    isEmailNotVerified && history.push(PATHS.UNAUTHENTICATED.CONFIRM_EMAIL)
   }, [history, user, loading, location.pathname])
 
   // Session fetching error handling
@@ -48,26 +50,22 @@ const RoutesRedirect = ({ children }) => {
     error && handleError(error)
   }, [error, handleError])
 
-  return (
-    <>
-      {loading ? (
-        <Box
-          height="100%"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Box display="flex" alignItems="center">
-            <Spinner />
-            <Text type="secondary" pb="2">
-              {t('Loading', 'Loading...')}
-            </Text>
-          </Box>
-        </Box>
-      ) : (
-        children
-      )}
-    </>
+  return loading ? (
+    <Box
+      height="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Box display="flex" alignItems="center">
+        <Spinner />
+        <Text type="secondary" pb="2">
+          {t('Loading', 'Loading...')}
+        </Text>
+      </Box>
+    </Box>
+  ) : (
+    children
   )
 }
 

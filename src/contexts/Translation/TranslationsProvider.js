@@ -30,10 +30,6 @@ const TranslationsProvider = (props) => {
       db={db}
     >
       <TranslationContext.Consumer>
-        {/* {({ loaded, loading }) =>
-          !loading || loaded ? children : <Spinner text={loadingText} />
-        } */}
-
         {({ loaded }) => (
           <Box width="inherit" height="inherit">
             {!loaded && (

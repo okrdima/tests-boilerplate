@@ -8,6 +8,8 @@ import LoginWithEmail from './LoginWithEmail'
 import PATHS from '../paths'
 import SignUpWithEmail from './SignUpWithEmail'
 import Signup from './Signup'
+import firebase from 'firebase/compat/app'
+import { useMemo } from 'react'
 
 const {
   LOGIN,
@@ -48,7 +50,12 @@ const routes = [
 ]
 
 const Auth = () => {
-  return (
+  const isAuthenticated = useMemo(
+    () => firebase.auth().currentUser?.emailVerified,
+    []
+  )
+
+  return isAuthenticated ? null : (
     <BoilerplateLayout>
       <Switch>
         {routes.map((routeProps) => (

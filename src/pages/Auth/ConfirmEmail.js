@@ -51,7 +51,7 @@ const ConfirmEmail = () => {
     >
       <Box display="flex" justifyContent="center">
         <Text code mb={[3, 40]}>
-          {user.email}
+          {user?.email}
         </Text>
       </Box>
       <Img
