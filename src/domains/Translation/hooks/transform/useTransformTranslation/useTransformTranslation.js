@@ -4,10 +4,6 @@ const useTransformTranslation = () => {
   // [ADDITIONAL HOOKS]
   const { t } = useTranslations()
 
-  // [COMPUTED PROPERTIES]
-
-  // [COMPONENT STATE]
-
   // [HELPER FUNCTIONS
   /**
    * It returns a string that contains the duration and pause of a task
@@ -18,8 +14,6 @@ const useTransformTranslation = () => {
     `${t('duration:')} ${duration || t('none')}${t(', pause:')} ${
       pause || t('no pause')
     }`
-
-  //[USE EFFECTS]
 
   return {
     getStartTimeInformationTitle
