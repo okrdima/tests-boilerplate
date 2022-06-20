@@ -1,17 +1,26 @@
-import { Col, Container, Row } from '@qonsoll/react-design'
+import { Box, Spin, Text } from '@qonsoll/react-design'
 
-import { Spin } from 'antd'
+import PropTypes from 'prop-types'
 
-const Spinner = () => {
+const Spinner = (props) => {
+  const { text, ...rest } = props
+
   return (
-    <Container py={6}>
-      <Row h="center">
-        <Col cw="auto">
-          <Spin />
-        </Col>
-      </Row>
-    </Container>
+    <Box
+      height="inherit"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      {...rest}
+    >
+      <Spin />
+      {text && <Text ml={2}>{text}</Text>}
+    </Box>
   )
+}
+
+Spinner.propTypes = {
+  text: PropTypes.string
 }
 
 export default Spinner

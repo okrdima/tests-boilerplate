@@ -56,7 +56,7 @@ const LoginForm = ({ login, onError, onForgotPasswordClick, ...rest }) => {
       >
         <Input size="large" autoFocus placeholder={t('Email')} />
       </Form.Item>
-      {isEmailExists && sessionProvider === 'email' && (
+      {lastSession?.email && isEmailExists && sessionProvider === 'email' && (
         <LastSessionUser vertical lastSession={lastSession} />
       )}
       <Form.Item

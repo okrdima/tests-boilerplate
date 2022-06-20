@@ -1,5 +1,7 @@
 import 'firebase/auth'
 import 'firebase/database'
+import 'firebase/compat/auth'
+import 'firebase/compat/database'
 import '@qonsoll/react-design/dist/styles/antd/index.css'
 import '@qonsoll/react-design/dist/styles/vars/index.css'
 import './styles/styles.css'

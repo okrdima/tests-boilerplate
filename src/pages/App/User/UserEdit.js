@@ -5,7 +5,7 @@ import { useTranslations } from 'contexts/Translation'
 const UserEdit = () => {
   const { t } = useTranslations()
   return (
-    <PageWrapper headingProps={{ title: t('Edit profile') }}>
+    <PageWrapper headingProps={{ title: t('Edit profile'), textAlign: 'left' }}>
       <UserAdvancedForm />
     </PageWrapper>
   )

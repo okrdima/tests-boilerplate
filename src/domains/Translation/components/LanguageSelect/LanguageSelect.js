@@ -1,36 +1,39 @@
-import { LANGUAGES } from 'contexts/Translation/__constants__'
 import { Select } from 'antd'
+import { useMemo } from 'react'
 import { useTranslations } from 'contexts/Translation'
 
 const LanguageSelect = () => {
-  /* Using the useTranslations hook to get the current language and the translateLoading hook to get
-  the loading state of the translation. */
-  const { setCurrentLanguage, language, setLanguageSwitch, translateLoading } =
-    useTranslations()
+  // [ADDITIONAL HOOKS]
+  const { setCurrentLanguage, language, languages, loading } = useTranslations()
 
-  /**
-   * The function takes in a value from the language dropdown and sets the current language to that
-  value.
-   * @returns None
-   */
-  const onChange = ({ value }) => {
-    setLanguageSwitch(true)
+  // [HANDLERS]
+  const handleChange = ({ value }) => {
     setCurrentLanguage(value)
+    // moment.locale(shortCodeLanguage === 'no' ? 'nb' : shortCodeLanguage)
   }
+
+  // [COMPUTED PROPERTIES]
+  const options = useMemo(
+    () =>
+      languages
+        .filter(({ value }) => value !== language)
+        .map(({ name, value, label }) => ({ label, name, value })),
+    [language, languages]
+  )
+  const defaultLanguage = useMemo(
+    () => languages.find(({ value }) => value === language),
+    [language, languages]
+  )
 
   return (
     <Select
-      block
       labelInValue
-      defaultValue={LANGUAGES.find(({ value }) => value === language)}
-      options={LANGUAGES.filter(({ value }) => value !== language)}
-      style={{ minWidth: 150 }}
-      loading={translateLoading}
-      onSelect={onChange}
+      onSelect={handleChange}
+      defaultValue={defaultLanguage}
+      options={options}
+      loading={loading}
     />
   )
 }
-
-LanguageSelect.propTypes = {}
 
 export default LanguageSelect

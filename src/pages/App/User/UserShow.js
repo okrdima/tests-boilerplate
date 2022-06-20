@@ -5,7 +5,12 @@ import { useTranslations } from 'contexts/Translation'
 const UserShow = () => {
   const { t } = useTranslations()
   return (
-    <PageWrapper headingProps={{ title: t('User profile') }}>
+    <PageWrapper
+      headingProps={{
+        title: t('User profile'),
+        textAlign: 'left'
+      }}
+    >
       <UserAdvancedView />
     </PageWrapper>
   )

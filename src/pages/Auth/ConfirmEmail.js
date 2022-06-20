@@ -1,4 +1,4 @@
-import { Box, Button, PageWrapper, Text } from '@qonsoll/react-design'
+import { Box, Button, Img, PageWrapper, Text } from '@qonsoll/react-design'
 
 import IllustrationConfirmEmail from 'assets/ConfirmEmail.svg'
 import PATHS from 'pages/paths'
@@ -51,17 +51,22 @@ const ConfirmEmail = () => {
     >
       <Box display="flex" justifyContent="center">
         <Text code mb={[3, 40]}>
-          {user.email}
+          {user?.email}
         </Text>
       </Box>
-      <IllustrationConfirmEmail width={['100%', 400, 480]} mb={[4, 4]} />
+      <Img
+        src={IllustrationConfirmEmail}
+        alt="Confirm email"
+        width={['100%', 400, 480]}
+        mb={4}
+      />
       <Box display="flex" justifyContent="center">
         <Text textAlign="center" mb={[12, 3]}>
           {t('dontReceiveEmail', `Don't receive the email?`)}
         </Text>
       </Box>
       <Button
-        block={[true, false]}
+        block
         onClick={() => {
           sendEmailVerification(onError)
         }}

@@ -43,6 +43,7 @@ const NotFound = () => {
           >
             <Img
               src={IllustrationNotFound}
+              alt="Not Found"
               width={['100%', 400, 480]}
               mt={['auto', 0]}
               mb={[3, 4]}
@@ -69,12 +70,7 @@ const NotFound = () => {
               </Text>
             </Box>
             <Box display="flex" flexDirection={['column', 'row']}>
-              <Button
-                type="primary"
-                size="large"
-                block={[true, false]}
-                onClick={goBack}
-              >
+              <Button type="primary" size="large" block onClick={goBack}>
                 {t('Go back')}
               </Button>
             </Box>

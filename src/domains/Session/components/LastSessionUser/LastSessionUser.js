@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Text } from '@qonsoll/react-design'
+import { Avatar, Box, Button, Text, Title } from '@qonsoll/react-design'
 import { SwapOutlined, UserOutlined } from '@ant-design/icons'
 
 import PropTypes from 'prop-types'
@@ -53,9 +53,9 @@ const LastSessionUser = ({
               flexGrow={1}
               minWidth={0}
             >
-              <Text variant="h5" isEllipsis>
+              <Title level={5} isEllipsis>
                 {lastSession.displayName || t('No name')}
-              </Text>
+              </Title>
               {lastSession.email && (
                 <Text variant="body2" type="secondary" isEllipsis>
                   {lastSession.email}
@@ -87,9 +87,9 @@ const LastSessionUser = ({
             mb={3}
           />
           <Box display="flex" flexDirection="column" alignItems="center">
-            <Text variant="h1" isEllipsis>
+            <Title level={1} isEllipsis>
               {lastSession.displayName || t('No name')}
-            </Text>
+            </Title>
             {lastSession.email && (
               <Text variant="body1" type="secondary" isEllipsis>
                 {lastSession.email}
