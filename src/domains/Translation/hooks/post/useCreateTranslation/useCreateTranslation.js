@@ -7,7 +7,7 @@ const useCreateTranslation = () => {
   const { saveTranslationForLanguage } = useTranslations()
 
   // [HELPER FUNCTIONS]
-  const saveTranslations = ({ textLabel, shortCode, refEnding, appName }) => {
+  const saveTranslations = ({ textLabel, shortCode, refEnding }) => {
     const appNameComputed = CURRENT_APP
     /* Creating a reference to the database. */
     const ref = `translations/${appNameComputed}/${shortCode}/${refEnding}`

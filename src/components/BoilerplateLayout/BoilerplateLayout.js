@@ -27,10 +27,7 @@ const BoilerplateLayout = ({ children }) => {
 
   /* The layoutConfig is memoized to only re-render when isAuthenticated changes. */
   const layoutConfig = useMemo(
-    () => ({
-      isAsideLeft: isAuthenticated,
-      asideLeftOuter: true
-    }),
+    () => ({ isAsideLeft: isAuthenticated, asideLeftOuter: true }),
     [isAuthenticated]
   )
 

@@ -4,6 +4,7 @@ import { Input, Tooltip, notification } from 'antd'
 import { Icon } from '@qonsoll/icons'
 import PropTypes from 'prop-types'
 import { assembleTranslationLanguages } from '../../helpers'
+import firebase from 'firebase/compat/app'
 import md5 from 'md5'
 import { useCreateTranslation } from '../../hooks'
 import { useState } from 'react'
@@ -79,8 +80,15 @@ const LocalizationItem = (props) => {
         .then(handleSuccessOperation)
         .catch(handleError)
     } else {
+      const updateTranslation = ({ textLabel, shortCode, refEnding }) => {
+        /* Creating a reference to the database. */
+        const ref = `translations/${appName}/${shortCode}/${refEnding}`
+        return firebase.database().ref(ref).set(textLabel)
+      }
+      const update = saveTranslationForLanguage || updateTranslation
+
       // update operation
-      saveTranslationForLanguage?.({
+      update({
         textLabel: value,
         refEnding: original,
         shortCode: lang

@@ -43,6 +43,7 @@ const NotFound = () => {
           >
             <Img
               src={IllustrationNotFound}
+              alt="Not Found"
               width={['100%', 400, 480]}
               mt={['auto', 0]}
               mb={[3, 4]}

@@ -14,7 +14,10 @@ const LanguageSelect = () => {
 
   // [COMPUTED PROPERTIES]
   const options = useMemo(
-    () => languages.filter(({ value }) => value !== language),
+    () =>
+      languages
+        .filter(({ value }) => value !== language)
+        .map(({ name, value, label }) => ({ label, name, value })),
     [language, languages]
   )
   const defaultLanguage = useMemo(
@@ -24,7 +27,6 @@ const LanguageSelect = () => {
 
   return (
     <Select
-      block
       labelInValue
       onSelect={handleChange}
       defaultValue={defaultLanguage}

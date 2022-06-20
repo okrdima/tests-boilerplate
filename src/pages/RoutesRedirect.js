@@ -38,9 +38,9 @@ const RoutesRedirect = ({ children }) => {
     /* If the user is logged in, redirect to the config page. If the user is logged out, redirect to
     the logout page. If the user's email is not verified, redirect to the email confirmation page.
     */
-    isLoggedIn && history.push(PATHS.CONFIG.AFTER_LOGIN)
-    isLoggedOut && history.push(PATHS.CONFIG.AFTER_LOGOUT)
-    isEmailNotVerified && history.push(PATHS.UNAUTHENTICATED.CONFIRM_EMAIL)
+    if (isEmailNotVerified) history.push(PATHS.UNAUTHENTICATED.CONFIRM_EMAIL)
+    else if (isLoggedIn) history.push(PATHS.CONFIG.AFTER_LOGIN)
+    else if (isLoggedOut) history.push(PATHS.CONFIG.AFTER_LOGOUT)
   }, [history, user, loading, location.pathname])
 
   // Session fetching error handling

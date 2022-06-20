@@ -6,6 +6,7 @@ import {
 } from 'domains/Translation/__constants__'
 import Provider, { TranslationContext } from '@qonsoll/translation'
 
+import { Box } from '@qonsoll/react-design'
 import PropTypes from 'prop-types'
 import { Spinner } from 'components'
 import firebase from 'firebase/compat/app'
@@ -29,9 +30,26 @@ const TranslationsProvider = (props) => {
       db={db}
     >
       <TranslationContext.Consumer>
-        {({ loaded, loading }) =>
+        {/* {({ loaded, loading }) =>
           !loading || loaded ? children : <Spinner text={loadingText} />
-        }
+        } */}
+
+        {({ loaded }) => (
+          <Box width="inherit" height="inherit">
+            {!loaded && (
+              <Box
+                position="fixed"
+                bg="white"
+                width="100vw"
+                height="100vh"
+                zIndex={1000}
+              >
+                <Spinner text={loadingText} />
+              </Box>
+            )}
+            {children}
+          </Box>
+        )}
       </TranslationContext.Consumer>
     </Provider>
   )

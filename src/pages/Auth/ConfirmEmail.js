@@ -54,7 +54,12 @@ const ConfirmEmail = () => {
           {user.email}
         </Text>
       </Box>
-      <Img src={IllustrationConfirmEmail} width={['100%', 400, 480]} mb={4} />
+      <Img
+        src={IllustrationConfirmEmail}
+        alt="Confirm email"
+        width={['100%', 400, 480]}
+        mb={4}
+      />
       <Box display="flex" justifyContent="center">
         <Text textAlign="center" mb={[12, 3]}>
           {t('dontReceiveEmail', `Don't receive the email?`)}
