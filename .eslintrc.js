@@ -25,6 +25,8 @@ module.exports = {
     }
   },
   rules: {
+    'no-undef': 2,
+    'no-unsafe-optional-chaining': 1,
     'no-console': 'warn',
     'no-eval': 'error',
     'no-unused-vars': 'warn',
