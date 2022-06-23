@@ -32,6 +32,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'import/first': 'error',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 1
   }
 }
