@@ -35,4 +35,5 @@
 
   /* Account */
   --ql-account-avatar-box-shadow-hover: inset 0 0 0 2px var(--ql-color-accent1);
+  --ql-form-item-vertical-spacing-without-message: 24px;
 }
