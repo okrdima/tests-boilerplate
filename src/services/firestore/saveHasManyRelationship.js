@@ -1,20 +1,23 @@
 import createDocument from './createDocument'
+import { getDocumentSnapshot } from 'services/firestore'
 
 /**
- * It takes a collection and an array of objects, creates a document for each object, and returns an
- * array of the document IDs
- * @param collection - The name of the collection you want to save the document to.
- * @param array - the array of objects to be saved
- * @returns An array of document ids
+ * It takes a collection and an array of objects, and returns an array of ids of the objects that were
+ * created or already existed in the collection
+ * @param collection - The collection you want to save the data to.
+ * @param array - The array of objects that you want to save.
+ * @returns An array of promises.
  */
 const saveHasManyRelationship = async (collection, array) => {
   const promises = array?.map(async (item) => {
-    if (!item?._id) {
+    const isDocumentExists = (
+      await getDocumentSnapshot(collection, item._id)
+    ).exists()
+    if (!isDocumentExists) {
       const document = await createDocument(collection, item)
       return document.id
-    } else {
-      return item._id
     }
+    return item._id
   })
   return promises?.length ? Promise.all(promises) : null
 }
