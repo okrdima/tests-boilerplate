@@ -3,3 +3,4 @@ const COLLECTIONS = {
 }
 
 export default COLLECTIONS
+export { COLLECTIONS }

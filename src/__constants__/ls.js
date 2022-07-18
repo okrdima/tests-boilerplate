@@ -6,3 +6,4 @@ const LS = {
 }
 
 export default LS
+export { LS }
