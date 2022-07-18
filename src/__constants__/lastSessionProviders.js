@@ -3,3 +3,4 @@ const LAST_SESSION_PROVIDERS = {
 }
 
 export default LAST_SESSION_PROVIDERS
+export { LAST_SESSION_PROVIDERS }
