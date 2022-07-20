@@ -52,10 +52,6 @@ const UserProvider = ({ children }) => {
                 avatarUrl: auth.photoURL,
                 agreement: true,
                 gdpr,
-                additionalData: {
-                  isCalendarIntegrated: false,
-                  calendarId: null
-                },
                 onError: handleError
               })
             }
