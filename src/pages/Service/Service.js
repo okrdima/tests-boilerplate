@@ -7,10 +7,15 @@ import NotFound from './NotFound'
 import PATHS from '../paths'
 import TermsAndConditionsOfUse from './TermsAndConditionsOfUse'
 
-const { ACCESS_DENIED, NOT_FOUND, GDPR, TERMS_AND_CONDITIONS_OF_USE } =
-  PATHS.SERVICE
+const { ACCESS_DENIED, NOT_FOUND, GDPR, TERMS_AND_CONDITIONS } = PATHS.SERVICE
 
 const routes = [
+  {
+    key: 'TERMS_AND_CONDITIONS',
+    path: TERMS_AND_CONDITIONS,
+    component: TermsAndConditionsOfUse,
+    exact: true
+  },
   {
     key: 'ACCESS_DENIED',
     path: ACCESS_DENIED,
@@ -18,13 +23,7 @@ const routes = [
     exact: true
   },
   { key: 'NOT_FOUND', path: NOT_FOUND, component: NotFound, exact: true },
-  { key: 'GDPR', path: GDPR, component: GDPRPage, exact: true },
-  {
-    key: 'TERMS_AND_CONDITIONS_OF_USE',
-    path: TERMS_AND_CONDITIONS_OF_USE,
-    component: TermsAndConditionsOfUse,
-    exact: true
-  }
+  { key: 'GDPR', path: GDPR, component: GDPRPage, exact: true }
 ]
 
 const Service = () => {

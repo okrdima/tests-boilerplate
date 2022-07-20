@@ -1,14 +1,14 @@
 import 'firebase/compat/firestore'
 
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useGDPRStatus, useSessionActions } from 'domains/Session/hooks'
 
 import PropTypes from 'prop-types'
 import UserContext from './UserContext'
 import firebase from 'firebase/compat/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
 import { useHandleError } from 'hooks'
+import { COLLECTIONS } from '__constants__'
 
 const UserProvider = ({ children }) => {
   /* The above code is a function that takes in a callback function as an argument.
@@ -19,13 +19,12 @@ const UserProvider = ({ children }) => {
   const gdpr = useGDPRStatus()
 
   /* Using the useAuthState hook to get the user from the firebase auth state. */
-  const [auth] = useAuthState(firebase.auth())
+  const [auth, authLoading] = useAuthState(firebase.auth())
 
   /* If the user is logged in, fetch the user's data from Firestore. */
-  const [value, loading, error] = useDocumentDataOnce(
-    auth && firebase.firestore().collection('users').doc(auth?.uid),
-    { snapshotListenOptions: { includeMetadataChanges: true } }
-  )
+  const [value, setValue] = useState()
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState()
 
   // Session methods
   const {
@@ -38,20 +37,43 @@ const UserProvider = ({ children }) => {
 
   // Initial user saving to the DB
   useEffect(() => {
-    // Check if there are user data in the DB
-    const isNoUserDataInDB = auth && !value && !loading
-
-    /* If there is no user data in the database, save the user data to the database. */
-    isNoUserDataInDB &&
-      saveUserToDB({
-        id: auth.uid,
-        email: auth.email,
-        avatarUrl: auth.photoURL,
-        agreement: true,
-        gdpr,
-        onError: handleError
-      })
-  }, [saveUserToDB, handleError, auth, value, loading, gdpr])
+    let unsubscribe
+    if (auth && !authLoading) {
+      unsubscribe = firebase
+        .firestore()
+        .collection(COLLECTIONS.USERS)
+        .doc(auth.uid)
+        .onSnapshot({
+          next: (snapshot) => {
+            if (!snapshot?.exists) {
+              return saveUserToDB({
+                id: auth.uid,
+                email: auth.email,
+                avatarUrl: auth.photoURL,
+                agreement: true,
+                gdpr,
+                additionalData: {
+                  isCalendarIntegrated: false,
+                  calendarId: null
+                },
+                onError: handleError
+              })
+            }
+            const data = snapshot.data()
+            setValue(data)
+            setLoading(false)
+          },
+          error: setError
+        })
+    }
+    if (!auth && !authLoading) {
+      setValue(null)
+      setLoading(false)
+    }
+    return () => {
+      unsubscribe?.()
+    }
+  }, [auth, authLoading])
 
   // Updating user's email verification status
   useEffect(() => {
