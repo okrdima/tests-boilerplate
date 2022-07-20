@@ -12,7 +12,7 @@ const updateGDPRStatus = ({ id, gdpr, onError }) => {
   return firestore
     .collection(USERS)
     .doc(id)
-    .udpdate({ gdpr })
+    .update({ gdpr })
     .catch((err) => {
       onError && onError(err)
     })
