@@ -1,7 +1,6 @@
-const useTransformName = () => {
-  const capitalize = (string) =>
-    string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+import { capitalize } from 'helpers'
 
+const useTransformName = () => {
   const transformName = (name) => {
     const splittedName = name?.split('_') || ''
     if (splittedName.length === 3) {

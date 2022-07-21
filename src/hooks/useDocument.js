@@ -3,6 +3,13 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import firestore from 'services/firebase/firestore'
 
+/**
+ * It takes a Firestore document reference and returns the document's data, a loading state, and an
+ * error state
+ * @param ref {string} - The document reference
+ * @param where {array} - The query where clause
+ * @returns An array with the value, loading, and error.
+ */
 const useDocument = (props) => {
   const [value, setValue] = useState()
   const [loading, setLoading] = useState(!!props.ref)

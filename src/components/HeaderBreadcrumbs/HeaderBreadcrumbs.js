@@ -6,9 +6,7 @@ import PATHS from 'pages/paths'
 import pluralize from 'pluralize'
 import { useTransformName } from './hooks'
 import { useTranslations } from 'contexts/Translation'
-
-const capitalize = (string) =>
-  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+import { capitalize } from 'helpers'
 
 const HeaderBreadcrumbs = () => {
   const { AUTHENTICATED } = PATHS

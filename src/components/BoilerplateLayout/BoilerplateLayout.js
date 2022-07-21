@@ -10,7 +10,7 @@ import {
   MenuCollapseWrapper,
   StyledAside
 } from './components/LayoutAside/LayoutAside.styled'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef } from 'react'
 
 import Back from '../Back'
 import PropTypes from 'prop-types'
@@ -19,6 +19,7 @@ import { Tooltip } from 'antd'
 import breakpoints from '../../styles/breakpoints'
 import firebase from 'firebase/compat/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useStateWithStorage } from 'hooks'
 
 const ASIDE_VISIBILITY = 'aside_visibility'
 
@@ -32,12 +33,10 @@ const BoilerplateLayout = ({ children }) => {
     [user?.email, user?.emailVerified, loading]
   )
 
-  const [asideLeftCollapsed, setAsideLeftCollapsed] = useState(
-    !localStorage.getItem(ASIDE_VISIBILITY)
-      ? true
-      : localStorage.getItem(ASIDE_VISIBILITY) === 'true'
+  const [asideLeftCollapsed, setAsideLeftCollapsed] = useStateWithStorage(
+    true,
+    ASIDE_VISIBILITY
   )
-
   const handleAsideCollapse = () => {
     setTimeout(() => {
       setAsideLeftCollapsed((prev) => {

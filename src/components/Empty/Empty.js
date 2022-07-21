@@ -1,18 +1,19 @@
-import {
-  Button,
-  Col,
-  Container,
-  Img,
-  Row,
-  Title,
-  Box
-} from '@qonsoll/react-design'
+import { Button, Container, Img, Title, Box } from '@qonsoll/react-design'
 import { useTranslations } from 'contexts/Translation'
 import { PlusOutlined } from '@ant-design/icons'
 
 import PropTypes from 'prop-types'
 import noDataLogo from '../../assets/empty.svg'
 
+/**
+ * It renders a container with a centered box, which contains an image, a title and a button
+ * @param withCreate {boolean} - If true, it renders a button to create a new item
+ * @param withIllustration {boolean} - If true, it renders an illustration
+ * @param message {string} - The message to display
+ * @param buttonMessage {string} - The message to display on the button
+ * @param onCreateButtonClick {function} - The function to call when the create button is clicked
+ * @param withText {boolean} - If true, it renders a text
+ */
 const Empty = (props) => {
   const {
     withCreate = true,

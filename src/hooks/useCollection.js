@@ -14,6 +14,14 @@ import firestore from 'services/firebase/firestore'
 
 const baseSortRule = ['_createdAt', 'desc']
 
+/**
+ * It returns an array of values that are the result of a query to a Firestore collection
+ * @param where {object} - The query where clause
+ * @param ref {string} - The collection reference
+ * @param orderBy {array} - The query orderBy clause
+ * @param limit {number} - The query limit clause
+ * @returns An array of values.
+ */
 const useCollection = (props) => {
   const [value, setValue] = useState()
   const [loading, setLoading] = useState(true)

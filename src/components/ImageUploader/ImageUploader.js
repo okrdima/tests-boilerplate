@@ -7,6 +7,12 @@ import { UploadOutlined } from '@ant-design/icons'
 import { uploadFile } from 'services/storage'
 import { useTranslations } from 'contexts/Translation'
 
+/**
+ * It's a React component that renders an image uploader
+ * @param value {string} - The image url
+ * @param onChange {function} - The function to call when the image is changed
+ * @param withDirectUpload {boolean} - If true, returns a url to the image
+ */
 const ImageUploader = (props) => {
   const { value, onChange, withDirectUpload = false } = props
 
