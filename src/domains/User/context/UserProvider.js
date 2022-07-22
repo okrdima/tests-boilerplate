@@ -3,12 +3,12 @@ import 'firebase/compat/firestore'
 import { useEffect, useMemo, useState } from 'react'
 import { useGDPRStatus, useSessionActions } from 'domains/Session/hooks'
 
+import { COLLECTIONS } from '__constants__'
 import PropTypes from 'prop-types'
 import UserContext from './UserContext'
 import firebase from 'firebase/compat/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useHandleError } from 'hooks'
-import { COLLECTIONS } from '__constants__'
 
 const UserProvider = ({ children }) => {
   /* The above code is a function that takes in a callback function as an argument.
@@ -69,6 +69,7 @@ const UserProvider = ({ children }) => {
     return () => {
       unsubscribe?.()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, authLoading])
 
   // Updating user's email verification status
