@@ -54,7 +54,7 @@ const GDPRPopup = () => {
   const redirectToTheCookiesPolicies = () => history.push(PATHS.SERVICE.GDPR)
   const handleAccept = () => {
     localStorage.setItem(GDPR_FLAG, 'true')
-    setAccepted(false)
+    setAccepted(true)
   }
 
   return accepted ? null : (
