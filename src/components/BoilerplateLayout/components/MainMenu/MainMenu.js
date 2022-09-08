@@ -2,7 +2,7 @@ import { Box, Col, Divider, Menu, MenuItem, Row } from '@qonsoll/react-design'
 import { Fragment, useMemo } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
-import { AppstoreOutlined } from '@ant-design/icons'
+import { AppstoreOutlined, SettingFilled } from '@ant-design/icons'
 import { Icon } from '@qonsoll/icons'
 import { LanguageSelect } from 'domains/Translation/components'
 import { useTranslations } from 'contexts/Translation'
@@ -32,6 +32,12 @@ const MainMenu = () => {
         icon: <AppstoreOutlined />,
         text: t('Dashboard'),
         onClick: () => history.push('/dashboard')
+      },
+      {
+        key: '/settings',
+        icon: <SettingFilled />,
+        text: t('Settings'),
+        onClick: () => history.push('/settings')
       }
     ],
     [t, history]

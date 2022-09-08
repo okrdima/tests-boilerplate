@@ -23,7 +23,8 @@ const PATHS = {
     DASHBOARD: '/dashboard',
     USER_SHOW: '/users/:id',
     USER_EDIT: '/users/:id/edit',
-    TRANSLATIONS: '/translations'
+    TRANSLATIONS: '/translations',
+    SETTINGS: '/settings'
   }
 }
 
