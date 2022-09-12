@@ -1,4 +1,6 @@
 import { doc, updateDoc } from 'firebase/firestore'
+import { createLog } from 'services/logs'
+import { LOG_TYPES } from '__constants__'
 
 import { firestore } from '../firebase'
 
@@ -9,8 +11,12 @@ import { firestore } from '../firebase'
  * @param data - The data to be updated.
  * @returns A promise that resolves to the data that was updated.
  */
-const updateDocument = (collectionPath, id, data) => {
+const updateDocument = async (collectionPath, id, data) => {
   const ref = doc(firestore, collectionPath, id)
+
+  // Wait for log to be created before updating the document for using non updated data
+  await createLog(LOG_TYPES.UPDATE, collectionPath, { ...data, _id: id })
+
   return updateDoc(ref, data)
 }
 

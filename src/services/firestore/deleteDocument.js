@@ -1,4 +1,6 @@
 import { deleteDoc, doc } from 'firebase/firestore'
+import { createLog } from 'services/logs'
+import { LOG_TYPES } from '__constants__'
 
 import { firestore } from '../firebase'
 
@@ -10,6 +12,8 @@ import { firestore } from '../firebase'
  */
 const deleteDocument = async (collectionPath, id) => {
   const result = await deleteDoc(doc(firestore, collectionPath, id))
+
+  createLog(LOG_TYPES.DELETE, collectionPath, { _id: id })
   return result
 }
 
