@@ -13,7 +13,10 @@ import { firestore } from '../firebase'
  */
 const updateDocument = async (collectionPath, id, data) => {
   const ref = doc(firestore, collectionPath, id)
+
+  // Wait for log to be created before updating the document for using non updated data
   await createLog(LOG_TYPES.UPDATE, collectionPath, { ...data, _id: id })
+
   return updateDoc(ref, data)
 }
 
