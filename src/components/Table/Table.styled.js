@@ -2,10 +2,12 @@ import styled from 'styled-components'
 
 const Styles = styled.div`
   padding: 1rem;
+  width: 100%;
 
   table {
     border-spacing: 0;
     border: 1px solid black;
+    width: 100%;
 
     tr {
       :last-child {
