@@ -9,7 +9,7 @@ const Statistics = () => {
   // [ADDITIONAL_HOOKS]
   const [lastUsedTab, setLastActiveTab] = useStateWithStorage(
     null,
-    `setting-last-active-tab`
+    `statistics-last-active-tab`
   )
   const { t } = useTranslations()
   const history = useHistory()
