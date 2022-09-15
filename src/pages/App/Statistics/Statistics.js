@@ -1,19 +1,18 @@
-import { Switch, useHistory } from 'react-router-dom'
-
 import { PageWrapper } from '@qonsoll/react-design'
-// import { SETTINGS_ROUTES } from 'pages/App/routes'
+import { useTranslations } from 'contexts'
 import { Tabs } from 'antd'
 import { useStateWithStorage } from 'hooks'
-import { useTranslations } from 'contexts/Translation'
+import { Switch, useHistory } from 'react-router-dom'
+import { useMemo } from 'react'
 
-const Settings = () => {
+const Statistics = () => {
   // [ADDITIONAL_HOOKS]
   const [lastUsedTab, setLastActiveTab] = useStateWithStorage(
     null,
     `setting-last-active-tab`
   )
-  const history = useHistory()
   const { t } = useTranslations()
+  const history = useHistory()
 
   // [HANDLERS]
   const onChangeTab = (key) => {
@@ -23,16 +22,16 @@ const Settings = () => {
 
   // [COMPUTED_PROPERTIES]
   const { TabPane } = Tabs
-  const headingProps = {
-    title: t('Settings'),
-    textAlign: 'left',
-    marginBottom: 1
-  }
 
-  const tabsData = []
+  const tabsData = useMemo(() => [], [])
 
   return (
-    <PageWrapper headingProps={headingProps}>
+    <PageWrapper
+      headingProps={{
+        title: t('Statistics'),
+        textAlign: 'left'
+      }}
+    >
       <Tabs defaultActiveKey={lastUsedTab} onChange={onChangeTab}>
         {tabsData.map(({ title, key }) => (
           <TabPane tab={title} key={key} />
@@ -43,4 +42,4 @@ const Settings = () => {
   )
 }
 
-export default Settings
+export default Statistics

@@ -24,7 +24,8 @@ const PATHS = {
     USER_SHOW: '/users/:id',
     USER_EDIT: '/users/:id/edit',
     TRANSLATIONS: '/translations',
-    SETTINGS: '/settings'
+    SETTINGS: '/settings',
+    STATISTICS: '/statistics'
   }
 }
 

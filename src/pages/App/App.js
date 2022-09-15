@@ -1,13 +1,14 @@
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { UserEdit, UserShow } from './User'
 import { Settings } from './Settings'
+import { Statistics } from './Statistics'
 
 import { BoilerplateLayout } from 'components'
 import Dashboard from './Dashboard/Dashboard'
 import PATHS from '../paths'
 import Translations from './Translations'
 
-const { DASHBOARD, USER_EDIT, USER_SHOW, TRANSLATIONS, SETTINGS } =
+const { DASHBOARD, USER_EDIT, USER_SHOW, TRANSLATIONS, SETTINGS, STATISTICS } =
   PATHS.AUTHENTICATED
 
 const routes = [
@@ -24,6 +25,12 @@ const routes = [
     key: 'SETTINGS',
     path: SETTINGS,
     component: Settings,
+    exact: false
+  },
+  {
+    key: 'STATISTICS',
+    path: STATISTICS,
+    component: Statistics,
     exact: false
   }
 ]
