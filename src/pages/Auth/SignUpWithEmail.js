@@ -19,8 +19,7 @@ const SignUpWithEmail = () => {
         subTitle: t('Please, enter your email and password'),
         marginBottom: 40
       }}
-      contentWidth={['100%', '100%', 400]}
-    >
+      contentWidth={['100%', '100%', 400]}>
       <SignupForm onError={onError} signup={signup} />
     </PageWrapper>
   )

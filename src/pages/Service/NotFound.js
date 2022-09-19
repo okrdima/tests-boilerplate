@@ -39,8 +39,7 @@ const NotFound = () => {
             display="flex"
             flexDirection="column"
             alignItems={['stretch', 'center']}
-            justifyContent={['stretch', 'center']}
-          >
+            justifyContent={['stretch', 'center']}>
             <Img
               src={IllustrationNotFound}
               alt="Not Found"
@@ -52,14 +51,12 @@ const NotFound = () => {
               display="flex"
               flexDirection="column"
               alignItems="center"
-              mb={[4, 64]}
-            >
+              mb={[4, 64]}>
               <Title
                 fontFamily="var(--ql-font-family-headings)"
                 variant={['h3', 'h1']}
                 textAlign="center"
-                mb={[2, 3]}
-              >
+                mb={[2, 3]}>
                 {t('pageNotFound', 'Oops... Page not found')}
               </Title>
               <Text textAlign="center">

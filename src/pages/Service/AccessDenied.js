@@ -38,8 +38,7 @@ const AccessDenied = () => {
             display="flex"
             flexDirection="column"
             alignItems={['stretch', 'center']}
-            justifyContent={['stretch', 'center']}
-          >
+            justifyContent={['stretch', 'center']}>
             <IllustrationAccessDenied
               width={['100%', 400, 480]}
               mt={['auto', 0]}
@@ -49,14 +48,12 @@ const AccessDenied = () => {
               display="flex"
               flexDirection="column"
               alignItems="center"
-              mb={[4, 64]}
-            >
+              mb={[4, 64]}>
               <Text
                 fontFamily="var(--ql-font-family-headings)"
                 variant={['h3', 'h1']}
                 textAlign="center"
-                mb={[2, 3]}
-              >
+                mb={[2, 3]}>
                 {t('Restricted space')}
               </Text>
               <Text textAlign="center">

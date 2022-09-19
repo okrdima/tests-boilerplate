@@ -9,8 +9,7 @@ const UserShow = () => {
       headingProps={{
         title: t('User profile'),
         textAlign: 'left'
-      }}
-    >
+      }}>
       <UserAdvancedView />
     </PageWrapper>
   )

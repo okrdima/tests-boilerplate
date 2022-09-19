@@ -11,8 +11,7 @@ const Spinner = (props) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      {...rest}
-    >
+      {...rest}>
       <Spin />
       {text && <Text ml={2}>{text}</Text>}
     </Box>

@@ -47,8 +47,7 @@ const ConfirmEmail = () => {
         textAlign: 'center',
         marginBottom: [3, 24]
       }}
-      contentWidth={['100%', '100%', 480]}
-    >
+      contentWidth={['100%', '100%', 480]}>
       <Box display="flex" justifyContent="center">
         <Text code mb={[3, 40]}>
           {user?.email}
@@ -69,8 +68,7 @@ const ConfirmEmail = () => {
         block
         onClick={() => {
           sendEmailVerification(onError)
-        }}
-      >
+        }}>
         {t('Resend email')}
       </Button>
     </PageWrapper>

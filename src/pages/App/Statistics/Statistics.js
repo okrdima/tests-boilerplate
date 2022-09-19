@@ -30,8 +30,7 @@ const Statistics = () => {
       headingProps={{
         title: t('Statistics'),
         textAlign: 'left'
-      }}
-    >
+      }}>
       <Tabs defaultActiveKey={lastUsedTab} onChange={onChangeTab}>
         {tabsData.map(({ title, key }) => (
           <TabPane tab={title} key={key} />

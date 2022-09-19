@@ -51,8 +51,7 @@ const LastSessionUser = ({
               display="flex"
               flexDirection="column"
               flexGrow={1}
-              minWidth={0}
-            >
+              minWidth={0}>
               <Title level={5} isEllipsis>
                 {lastSession.displayName || t('No name')}
               </Title>
@@ -67,8 +66,7 @@ const LastSessionUser = ({
             position="absolute"
             top="50%"
             right={2}
-            transform="translate(0, -50%)"
-          >
+            transform="translate(0, -50%)">
             <Tooltip title={t('Change account')}>
               <Button
                 type="text"

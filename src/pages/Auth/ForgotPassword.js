@@ -20,8 +20,7 @@ const ForgotPassword = () => {
         textAlign: 'center',
         marginBottom: 40
       }}
-      contentWidth={['100%', '100%', 400]}
-    >
+      contentWidth={['100%', '100%', 400]}>
       <ForgotPasswordForm resetPassword={resetPassword} onError={onError} />
     </PageWrapper>
   )

@@ -55,8 +55,7 @@ const RoutesRedirect = ({ children }) => {
       height="100%"
       display="flex"
       alignItems="center"
-      justifyContent="center"
-    >
+      justifyContent="center">
       <Box display="flex" alignItems="center">
         <Spinner />
         <Text type="secondary" pb="2">

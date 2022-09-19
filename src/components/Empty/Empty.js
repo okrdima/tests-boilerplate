@@ -32,8 +32,7 @@ const Empty = (props) => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
-    >
+      justifyContent="center">
       <Box>
         {withIllustration && (
           <Img mb={4} src={noDataLogo} alt="No data" width={150} />
@@ -49,8 +48,7 @@ const Empty = (props) => {
             block
             icon={<PlusOutlined />}
             onClick={onCreateButtonClick}
-            type="primary"
-          >
+            type="primary">
             {buttonMessage || t('Create')}
           </Button>
         )}

@@ -32,8 +32,7 @@ const LoginWithEmail = () => {
         marginBottom: 40
       }}
       contentWidth={['100%', '100%', 400]}
-      firstLevelHidden={isEmailExists && sessionProvider === 'email'}
-    >
+      firstLevelHidden={isEmailExists && sessionProvider === 'email'}>
       <LoginForm
         login={login}
         onError={onError}

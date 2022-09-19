@@ -52,8 +52,7 @@ const LoginForm = ({ login, onError, onForgotPasswordClick, ...rest }) => {
             required: true,
             message: t('Please enter valid email')
           }
-        ]}
-      >
+        ]}>
         <Input size="large" autoFocus placeholder={t('Email')} />
       </Form.Item>
       {lastSession?.email && isEmailExists && sessionProvider === 'email' && (
@@ -64,8 +63,7 @@ const LoginForm = ({ login, onError, onForgotPasswordClick, ...rest }) => {
         rules={[
           { required: true, message: t('Please, enter your password') },
           { min: 6, message: t('Password must be at least 6 characters') }
-        ]}
-      >
+        ]}>
         <Input.Password
           size="large"
           autoFocus={isEmailExists}
@@ -84,8 +82,7 @@ const LoginForm = ({ login, onError, onForgotPasswordClick, ...rest }) => {
             htmlType="submit"
             type="primary"
             size="large"
-            loading={loading}
-          >
+            loading={loading}>
             {t('Login')} 🚀
           </Button>
         </Col>

@@ -7,9 +7,9 @@ import {
   BarChartOutlined,
   SettingFilled
 } from '@ant-design/icons'
-import { Icon } from '@qonsoll/icons'
 import { LanguageSelect } from 'domains/Translation/components'
 import { useTranslations } from 'contexts/Translation'
+import ADMIN_MODULE_MENU_ITEMS from 'modules/admin-module/components/menuItems'
 
 const MainMenu = () => {
   // [ADDITIONAL_HOOKS]
@@ -24,13 +24,13 @@ const MainMenu = () => {
   }, [location])
   const menuItems = useMemo(
     () => [
-      {
-        key: '/translations',
-        icon: <Icon name="TranslationFilled" />,
-        text: t('Translations'),
-        onClick: () => history.push('/translations'),
-        divided: true
-      },
+      // {
+      //   key: '/translations',
+      //   icon: <Icon name="TranslationFilled" />,
+      //   text: t('Translations'),
+      //   onClick: () => history.push('/translations'),
+      //   divided: true
+      // },
       {
         key: '/dashboard',
         icon: <AppstoreOutlined />,
@@ -47,8 +47,10 @@ const MainMenu = () => {
         key: '/statistics',
         icon: <BarChartOutlined />,
         text: t('Statistics'),
-        onClick: () => history.push('/statistics')
-      }
+        onClick: () => history.push('/statistics'),
+        divided: ADMIN_MODULE_MENU_ITEMS.menuItemsExist // if there any menuItems in the module
+      },
+      ...ADMIN_MODULE_MENU_ITEMS.getMenuItems({ t, history })
     ],
     [t, history]
   )
