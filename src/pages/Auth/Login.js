@@ -39,8 +39,7 @@ const Login = () => {
             ),
         marginBottom: 40
       }}
-      contentWidth={['100%', '100%', 400]}
-    >
+      contentWidth={['100%', '100%', 400]}>
       <AuthMethods
         authTypeText="Login"
         googleAuth={googleLogin}

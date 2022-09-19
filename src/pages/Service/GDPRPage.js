@@ -4,8 +4,7 @@ const GDPRPage = () => (
   <PageWrapper
     headingProps={{
       title: 'Cookie Policy'
-    }}
-  >
+    }}>
     You agreed with Cookie Policy
   </PageWrapper>
 )

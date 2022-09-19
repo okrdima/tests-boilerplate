@@ -85,8 +85,7 @@ const LoginMethods = (props) => {
           size="large"
           block
           icon={<MailOutlined />}
-          onClick={redirectToFormWithEmail}
-        >
+          onClick={redirectToFormWithEmail}>
           {authTypeText} {t('with email')}
         </Button>
       )}

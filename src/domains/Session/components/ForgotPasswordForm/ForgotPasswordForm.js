@@ -42,8 +42,7 @@ const ForgotPasswordForm = ({ resetPassword, onError }) => {
             required: true,
             message: t('Please enter valid email')
           }
-        ]}
-      >
+        ]}>
         <Input
           autoFocus
           placeholder={t('Enter your account email')}

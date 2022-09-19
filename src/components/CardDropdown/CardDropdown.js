@@ -63,8 +63,7 @@ const CardDropdown = (props) => {
                 key="delete"
                 icon={<DeleteOutlined />}
                 danger
-                onClick={handleDelete}
-              >
+                onClick={handleDelete}>
                 {t('Delete')}
               </MenuItem>
             )}
@@ -79,8 +78,7 @@ const CardDropdown = (props) => {
         cursor={cursorComputed}
         onDoubleClick={onDoubleClick}
         onClick={onClick}
-        {...rest}
-      >
+        {...rest}>
         {children}
       </Box>
     </Wrapper>

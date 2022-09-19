@@ -82,13 +82,11 @@ const BoilerplateLayout = ({ children }) => {
                   />
                 </Box>
               </StyledAside>
-            }
-          >
+            }>
             <MenuCollapseWrapper
               ref={ButtonRef}
               asideLeftCollapsed={asideLeftCollapsed}
-              onClick={handleAsideCollapse}
-            >
+              onClick={handleAsideCollapse}>
               {asideLeftCollapsed ? (
                 <Tooltip placement="right" title="Show workspaces">
                   <Button shape="circle">

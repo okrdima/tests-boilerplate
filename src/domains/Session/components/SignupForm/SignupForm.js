@@ -30,8 +30,7 @@ const SignupForm = ({ signup, onError, ...rest }) => {
             required: true,
             message: t('Please enter valid email')
           }
-        ]}
-      >
+        ]}>
         <Input size="large" autoFocus placeholder={t('Email')} />
       </Form.Item>
       <Form.Item
@@ -40,8 +39,7 @@ const SignupForm = ({ signup, onError, ...rest }) => {
         rules={[
           { required: true, message: t('Please, enter your password') },
           { min: 6, message: t('Password must be at least 6 characters') }
-        ]}
-      >
+        ]}>
         <Input.Password size="large" placeholder={t('Password')} />
       </Form.Item>
       <Form.Item
@@ -63,8 +61,7 @@ const SignupForm = ({ signup, onError, ...rest }) => {
               )
             }
           })
-        ]}
-      >
+        ]}>
         <Input.Password size="large" placeholder={t('Confirm Password')} />
       </Form.Item>
       <Form.Item
@@ -77,8 +74,7 @@ const SignupForm = ({ signup, onError, ...rest }) => {
                 ? Promise.resolve()
                 : Promise.reject(new Error(t('Should accept agreement')))
           }
-        ]}
-      >
+        ]}>
         <Checkbox>
           {t('I have read the')}{' '}
           <Link to={PATHS.SERVICE.TERMS_AND_CONDITIONS}>{t('agreement')}</Link>
@@ -89,8 +85,7 @@ const SignupForm = ({ signup, onError, ...rest }) => {
         htmlType="submit"
         size="large"
         block
-        loading={loading}
-      >
+        loading={loading}>
         {t('Sign up')}
       </Button>
     </Form>

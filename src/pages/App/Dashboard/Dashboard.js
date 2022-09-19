@@ -9,8 +9,7 @@ const Dashboard = () => {
       headingProps={{
         title: t('Dashboard'),
         textAlign: 'left'
-      }}
-    >
+      }}>
       Content
     </PageWrapper>
   )
