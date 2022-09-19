@@ -112,8 +112,7 @@ const LocalizationItem = (props) => {
               <Tooltip
                 title={t(
                   'You can add new translation by filling this input and pressing "Enter"'
-                )}
-              >
+                )}>
                 <Icon
                   name="AlertCircleFilled"
                   cursor="help"
@@ -135,8 +134,7 @@ const LocalizationItem = (props) => {
               <Tooltip
                 title={t(
                   'You can add new translation by filling this input and pressing "Enter"'
-                )}
-              >
+                )}>
                 <Icon
                   name="AlertCircleFilled"
                   cursor="help"

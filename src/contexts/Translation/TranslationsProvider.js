@@ -27,8 +27,7 @@ const TranslationsProvider = (props) => {
       languages={LANGUAGES}
       defaultLanguage={DEFAULT_LANGUAGE}
       currentApp={CURRENT_APP}
-      db={db}
-    >
+      db={db}>
       <TranslationContext.Consumer>
         {({ loaded }) => (
           <Box width="inherit" height="inherit">
@@ -38,8 +37,7 @@ const TranslationsProvider = (props) => {
                 bg="white"
                 width="100vw"
                 height="100vh"
-                zIndex={1000}
-              >
+                zIndex={1000}>
                 <Spinner text={loadingText} />
               </Box>
             )}

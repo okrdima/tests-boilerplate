@@ -1,3 +1,5 @@
+import ADMIN_MODULE_PATHS from 'modules/admin-module/pages/paths'
+
 const PATHS = {
   CONFIG: {
     DEFAULT: '/auth',
@@ -23,9 +25,9 @@ const PATHS = {
     DASHBOARD: '/dashboard',
     USER_SHOW: '/users/:id',
     USER_EDIT: '/users/:id/edit',
-    TRANSLATIONS: '/translations',
     SETTINGS: '/settings',
-    STATISTICS: '/statistics'
+    STATISTICS: '/statistics',
+    ...ADMIN_MODULE_PATHS.AUTHENTICATED
   }
 }
 
