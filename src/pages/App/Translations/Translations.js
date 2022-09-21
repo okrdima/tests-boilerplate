@@ -36,8 +36,7 @@ const Translations = () => {
         title: t('Translations'),
         textAlign: 'left'
       }}
-      onBack={() => history?.goBack()}
-    >
+      onBack={() => history?.goBack()}>
       <CustomTabs defaultActiveKey={CURRENT_APP} size="large" height={height}>
         <TabPane tab={CURRENT_APP} key={CURRENT_APP}>
           <LocalizationForm

@@ -1,0 +1,5 @@
+const DATE_FORMATS = {
+  DATE_MONTH_YEAR: 'DD MMM YYYY'
+}
+
+export default DATE_FORMATS

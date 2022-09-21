@@ -7,6 +7,7 @@ const attr = (dataType, options) => {
     if (!DATA_TYPES.includes(dataType))
       throw new Error('Incorrect dataType provided to the model')
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e)
   }
   return {

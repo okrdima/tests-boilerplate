@@ -11,6 +11,15 @@
  *   }
  */
 const formatTranslations = (obj) => {
+  // TODO SWE-4015
+  // Mb will be better
+  // const formatterTranslations = labels.length
+  //   ? labels.map((label) => ({
+  //       original: label,
+  //       en: obj.en[label],
+  //       no: obj.no[label]
+  //     }))
+  //   : []
   const labels = obj?.en && Object.keys(obj.en)
   let formattedTranslations = []
   labels.length &&
