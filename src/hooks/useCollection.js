@@ -41,18 +41,21 @@ const useCollection = (props) => {
       setLoading(true)
       const documents = []
       try {
+        const queryExtraParams =
+          props?.orderBy || props?.limit
+            ? [
+                Array.isArray(props?.orderBy)
+                  ? orderBy(...(props?.orderBy || []))
+                  : orderBy(...baseSortRule),
+                limit(props?.limit)
+              ]
+            : []
         const querySnapshot = props?.where?.length
           ? query(
               collection(firestore, props?.ref),
               ...(props?.where?.map?.((rule) => where(...rule)) || [])
             )
-          : query(
-              collection(firestore, props?.ref),
-              Array.isArray(props?.orderBy)
-                ? orderBy(...(props?.orderBy || []))
-                : orderBy(...baseSortRule),
-              limit(props?.limit)
-            )
+          : query(collection(firestore, props?.ref), ...queryExtraParams)
         onSnapshot(querySnapshot, (data) => {
           setLoading(true)
           setValue(data.docs.map((item) => item?.data()))

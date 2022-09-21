@@ -3,6 +3,7 @@ const model = (name, fields, validationSchema) => {
     if (!name) throw new Error('No name provided to the model method')
     if (!fields) throw new Error('No fields provided to the model method')
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e)
   }
 

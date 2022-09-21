@@ -2,28 +2,47 @@ import { PageWrapper } from '@qonsoll/react-design'
 import { useTranslations } from 'contexts'
 import { Tabs } from 'antd'
 import { useStateWithStorage } from 'hooks'
-import { Switch, useHistory } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import { useMemo } from 'react'
+import PATHS from 'pages/paths'
+import { PERMISSIONS_ROUTES } from '../routes'
 
 const Permissions = () => {
-  // [ADDITIONAL_HOOKS]
   const [lastUsedTab, setLastActiveTab] = useStateWithStorage(
     null,
-    `statistics-last-active-tab`
+    `permissions-last-active-tab`
   )
   const { t } = useTranslations()
   const history = useHistory()
 
-  // [HANDLERS]
   const onChangeTab = (key) => {
     setLastActiveTab(key)
     history.push(key)
   }
 
-  // [COMPUTED_PROPERTIES]
   const { TabPane } = Tabs
 
-  const tabsData = useMemo(() => [], [])
+  const tabsData = useMemo(
+    () => [
+      {
+        title: t('Users'),
+        key: PATHS.AUTHENTICATED.USERS_LIST
+      },
+      {
+        title: t('Roles'),
+        key: PATHS.AUTHENTICATED.ROLES_LIST
+      },
+      {
+        title: t('Models'),
+        key: PATHS.AUTHENTICATED.MODELS_LIST
+      },
+      {
+        title: t('Pages'),
+        key: PATHS.AUTHENTICATED.PAGES_LIST
+      }
+    ],
+    [t]
+  )
 
   return (
     <PageWrapper
@@ -36,7 +55,11 @@ const Permissions = () => {
           <TabPane tab={title} key={key} />
         ))}
       </Tabs>
-      <Switch></Switch>
+      <Switch>
+        {PERMISSIONS_ROUTES.map((routeProps) => (
+          <Route key={routeProps.key} {...routeProps} />
+        ))}
+      </Switch>
     </PageWrapper>
   )
 }
