@@ -40,7 +40,7 @@
   "scripts": {
     "start": "npm run start:dev",
     "build": "npm run build:dev",
-    "test": "env-cmd -f .env.development react-scripts test",
+    "test": "env-cmd -f .env.development react-scripts test --coverage --watchAll --collectCoverage",
     "eject": "react-scripts eject",
     "start:dev": "env-cmd -f .env.development react-scripts start",
     "start:prod": "env-cmd -f .env.production react-scripts start",
