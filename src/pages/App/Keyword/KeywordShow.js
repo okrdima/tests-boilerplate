@@ -1,20 +1,17 @@
-import { useTranslations } from 'contexts/Translation'
-import { HeaderBreadcrumbs, Spinner } from 'components'
-import { PageWrapper, Row, Col } from '@qonsoll/react-design'
-import { useParams, useHistory } from 'react-router-dom'
-import { KeywordAdvancedView } from 'domains/Keyword/components'
-import { EditOutlined } from '@ant-design/icons'
+import { Col, PageWrapper, Row } from '@qonsoll/react-design'
+import { useHistory, useParams } from 'react-router-dom'
+
 import { Button } from '@qonsoll/react-design'
+import { EditOutlined } from '@ant-design/icons'
+import { HeaderBreadcrumbs } from 'components'
+import { KeywordAdvancedView } from 'domains/Keyword/components'
+import { useTranslations } from 'contexts/Translation'
 
 const KeywordShow = (props) => {
-  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
   const history = useHistory()
   const params = useParams()
 
-  // [COMPONENT_STATE_HOOKS]
-
-  // [COMPUTED_PROPERTIES]
   const headingProps = {
     title: t('Keyword show'),
     titleSize: 3,
@@ -23,7 +20,6 @@ const KeywordShow = (props) => {
   }
   const { keywordId } = params
 
-  // [HANDLERS]
   const handleBackButtonClick = () => history.goBack()
 
   return (
