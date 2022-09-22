@@ -37,10 +37,21 @@
     "web-vitals": "2.1.3",
     "yup": "0.32.11"
   },
+  "jest": {
+    "collectCoverageFrom": ["./src/**"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
   "scripts": {
     "start": "npm run start:dev",
     "build": "npm run build:dev",
-    "test": "env-cmd -f .env.development react-scripts test --coverage --watchAll --collectCoverage",
+    "test": "env-cmd -f .env.development react-scripts test --watchAll --collectCoverage",
     "eject": "react-scripts eject",
     "start:dev": "env-cmd -f .env.development react-scripts start",
     "start:prod": "env-cmd -f .env.production react-scripts start",
