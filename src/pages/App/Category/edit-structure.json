@@ -1,0 +1,119 @@
+{
+  "domain": "Category",
+  "variant": "Edit",
+  "collectionName": "categories",
+  "singularDomain": "Category",
+  "loweringDomain": "category",
+  "parentDomains": [],
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["HeaderBreadcrumbs","Spinner"],
+      "source": "components",
+      "isDefault": false
+    },
+    {
+      "imports": ["PageWrapper","Row","Col"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams","useHistory"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["CategoryAdvancedForm"],
+      "source": "domains/Category/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["useGetCategoryInitialValues"],
+      "source": "domains/Category/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["useLoading"],
+      "source": "hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["useDocument"],
+      "source": "services/api/rest",
+      "isDefault": false
+    },
+    {
+      "imports": ["Spin"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    }
+  ],
+  "component": "CategoryAdvancedForm",
+  "headingProps": {
+    "title": "Category edit",
+    "titleSize": 3,
+    "marginBottom": 3,
+    "textAlign": "left"
+  },
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["history"],
+      "hook": "useHistory",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["params"],
+      "hook": "useParams",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["categoryId"],
+      "hook": "params",
+      "params": [],
+      "type": "object",
+      "isNotFunction": true
+    },
+    {
+      "variables": ["initialValues","loading"],
+      "hook": "useGetCategoryInitialValues",
+      "params": ["categoryId"],
+      "type": "array",
+      "isNotFunction": false
+    }
+  ],
+  "functions": [
+    {
+    "name": "handleBackButtonClick",
+    "params": [],
+    "body": "history.goBack()",
+    "inline": true
+    }
+  ],
+  "relationshipPages": [
+  ],
+  "dashboardMeta": {
+    "transformedComponents": [
+    ],
+    "importStrings": [
+    ]
+  }
+}

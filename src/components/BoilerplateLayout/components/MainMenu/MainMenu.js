@@ -1,15 +1,16 @@
 import { Box, Col, Divider, Menu, MenuItem, Row } from '@qonsoll/react-design'
 import { Fragment, useMemo } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
 
 import {
   AppstoreOutlined,
-  BarChartOutlined,
-  SettingFilled
+  StarOutlined,
+  SettingFilled,
+  BarChartOutlined
 } from '@ant-design/icons'
+import { Icon } from '@qonsoll/icons'
 import { LanguageSelect } from 'domains/Translation/components'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useTranslations } from 'contexts/Translation'
-import ADMIN_MODULE_MENU_ITEMS from 'modules/admin-module/components/menuItems'
 
 const MainMenu = () => {
   // [ADDITIONAL_HOOKS]
@@ -17,11 +18,12 @@ const MainMenu = () => {
   const history = useHistory()
   const location = useLocation()
 
-  // [COMPUTED PROPERTIES]
+  // [COMPUTED_PROPERTIES]
   const initialSelected = useMemo(() => {
     const currentParentPath = location.pathname.split('/')?.[1]
     return ['/' + currentParentPath]
   }, [location])
+
   const menuItems = useMemo(
     () => [
       {
@@ -40,10 +42,32 @@ const MainMenu = () => {
         key: '/statistics',
         icon: <BarChartOutlined />,
         text: t('Statistics'),
-        onClick: () => history.push('/statistics'),
-        divided: ADMIN_MODULE_MENU_ITEMS.menuItemsExist // if there any menuItems in the module
+        onClick: () => history.push('/statistics')
       },
-      ...ADMIN_MODULE_MENU_ITEMS.getMenuItems({ t, history })
+      {
+        key: '/materials',
+        icon: <StarOutlined />,
+        text: t('Materials'),
+        onClick: () => history.push('/materials')
+      },
+      {
+        key: '/keywords',
+        icon: <StarOutlined />,
+        text: t('Keywords'),
+        onClick: () => history.push('/keywords')
+      },
+      {
+        key: '/categories',
+        icon: <StarOutlined />,
+        text: t('Categories'),
+        onClick: () => history.push('/categories')
+      },
+      {
+        key: '/articles',
+        icon: <StarOutlined />,
+        text: t('Articles'),
+        onClick: () => history.push('/articles')
+      }
     ],
     [t, history]
   )

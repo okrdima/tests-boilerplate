@@ -1,5 +1,3 @@
-import ADMIN_MODULE_PATHS from 'modules/admin-module/pages/paths'
-
 const PATHS = {
   CONFIG: {
     DEFAULT: '/auth',
@@ -23,11 +21,28 @@ const PATHS = {
   },
   AUTHENTICATED: {
     DASHBOARD: '/dashboard',
-    USER_SHOW: '/users/:id',
-    USER_EDIT: '/users/:id/edit',
+    USER_SHOW: '/users/:userId',
+    TRANSLATIONS: '/translations',
     SETTINGS: '/settings',
     STATISTICS: '/statistics',
-    ...ADMIN_MODULE_PATHS.AUTHENTICATED
+    MATERIALS_ALL: '/materials',
+    MATERIAL_SHOW: '/materials/:materialId',
+    MATERIAL_CREATE: '/material/create',
+    MATERIAL_EDIT: '/materials/:materialId/edit',
+    KEYWORD_SHOW: '/keywords/:keywordId',
+    KEYWORD_EDIT: '/keywords/:keywordId/edit',
+    KEYWORDS_ALL: '/keywords',
+    KEYWORD_CREATE: '/keyword/create',
+    CATEGORY_SHOW: '/categories/:categoryId',
+    CATEGORY_EDIT: '/categories/:categoryId/edit',
+    CATEGORIES_ALL: '/categories',
+    CATEGORY_CREATE: '/category/create',
+    MATERIAL_TYPE_SHOW: '/material-types/:materialTypeId',
+    MATERIAL_TYPE_EDIT: '/material-types/:materialTypeId/edit',
+    ARTICLES_ALL: '/articles',
+    ARTICLE_SHOW: '/articles/:articleId',
+    ARTICLE_CREATE: '/article/create',
+    ARTICLE_EDIT: '/articles/:articleId/edit'
   }
 }
 

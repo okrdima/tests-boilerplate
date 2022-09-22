@@ -1,0 +1,3 @@
+import useInitializeArticleAdvancedForm from './useInitializeArticleAdvancedForm'
+
+export default useInitializeArticleAdvancedForm

@@ -1,0 +1,117 @@
+{
+  "domain": "Material",
+  "variant": "List",
+  "parentDomains": [],
+  "collectionName": "materials",
+  "singularDomain": "material",
+  "loweringDomain": "material", 
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["Row","Col","Text"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useState"],
+      "source": "react",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["MaterialSimpleView"],
+      "source": "domains/Material/components",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+    {
+      "variables": ["selectedItem","setSelectedItem"],
+      "hook": "useState",
+      "params": ["null"],
+      "type": "array"
+    }
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+    {
+    "name": "onEmptySpaceClick",
+    "params": [],
+    "body": "setSelectedItem(null)",
+    "inline": true
+    }
+  ],
+  "fields": [
+  ],
+  "propTypes": [
+    {
+      "name": "materials",
+      "type": "array",
+      "isRequired": false
+    },
+    {
+      "name": "isListWithCreate",
+      "type": "bool",
+      "isRequired": false
+    },
+    {
+      "name": "listView",
+      "type": "bool",
+      "isRequired": false
+    },
+    {
+      "name": "emptyProps",
+      "type": "object",
+      "isRequired": false
+    },
+    {
+      "name": "actions",
+      "type": "shape({onEdit: PropTypes.func, onDelete: PropTypes.func, onDoubleClick: PropTypes.func, onClick: PropTypes.func})",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Material",
+      "variant": "SortMenu"
+    },
+    {
+      "domain": "Material",
+      "variant": "SimpleView"
+    },
+    {
+      "domain": "Material",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "Material",
+      "variant": "Filter"
+    }
+  ]
+}

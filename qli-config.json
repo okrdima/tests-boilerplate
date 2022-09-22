@@ -1,0 +1,6 @@
+{
+  "applicationType": "web",
+  "isAdmin": false,
+  "baseComponentLibrary": "@qonsoll/react-design",
+  "apiType": "rest"
+}

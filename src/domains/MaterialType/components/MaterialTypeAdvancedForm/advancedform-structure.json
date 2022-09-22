@@ -1,0 +1,115 @@
+{
+  "domain": "MaterialType",
+  "variant": "AdvancedForm",
+  "parentDomains": [{"domain": "Material", "dataType": "belongsTo", "originalFieldName": "type" }],
+  "collectionName": "materialTypes",
+  "singularDomain": "materialType",
+  "loweringDomain": "materialType", 
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["MaterialTypeSimpleForm"],
+      "source": "domains/MaterialType/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["Button, Title"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["Form"],
+      "source": "antd",
+      "isDefault": false
+    },
+    {
+      "imports": ["KEYS"],
+      "source": "__constants__",
+      "isDefault": false
+    },
+    {
+      "imports": ["useInitializeMaterialTypeAdvancedForm","useActionsMaterialTypeAdvancedForm"],
+      "source": "./hooks",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["form"],
+      "hook": "useInitializeMaterialTypeAdvancedForm",
+      "params": ["initialData"],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+    {
+    "name": "handleKeyPress",
+    "params": ["e"],
+    "body": "if (e.key === KEYS.ENTER) { e.preventDefault(); onFinish() }",
+    "inline": false
+    }
+  ],
+  "fields": [
+    {
+    "fieldName": "name",
+    "fieldTitle": "Name",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "Input",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": false,
+    "isRecognized": true,
+    "priority": 2
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "initialData",
+      "type": "object",
+      "isRequired": false
+    },
+    {
+      "name": "group",
+      "type": "array",
+      "isRequired": false
+    },
+    {
+      "name": "showTitle",
+      "type": "bool",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "MaterialType",
+      "variant": "SimpleForm"
+    }
+  ]
+}

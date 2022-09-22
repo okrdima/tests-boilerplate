@@ -1,4 +1,4 @@
-import { deleteDocument, updateDocument } from 'services/api/firebase'
+import { deleteDocument, updateDocument } from 'services/api/rest'
 
 import { message } from 'antd'
 import { useEvent } from 'hooks'

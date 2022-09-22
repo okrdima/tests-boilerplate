@@ -1,0 +1,120 @@
+{
+  "Article": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": true,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "materials",
+      "dataType": "hasMany",
+      "transformedDataType": "array",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasMany",
+      "attribute": {
+        "name": "hasMany",
+        "type": "material"
+      }
+    }
+  ],
+  "Material": [
+    {
+      "fieldName": "url",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    },
+    {
+      "fieldName": "keywords",
+      "dataType": "hasMany",
+      "transformedDataType": "array",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasMany",
+      "attribute": {
+        "name": "hasMany",
+        "type": "keyword"
+      }
+    },
+    {
+      "fieldName": "category",
+      "dataType": "hasOne",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "hasOne",
+      "attribute": {
+        "name": "hasOne",
+        "type": "category"
+      }
+    },
+    {
+      "fieldName": "type",
+      "dataType": "belongsTo",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "belongsTo",
+      "attribute": {
+        "name": "belongsTo",
+        "type": "materialType"
+      }
+    }
+  ],
+  "Keyword": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ],
+  "Category": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ],
+  "MaterialType": [
+    {
+      "fieldName": "name",
+      "dataType": "string",
+      "transformedDataType": "string",
+      "isRequired": false,
+      "isParentModel": false,
+      "singularDataType": "string",
+      "attribute": {
+        "name": "attr",
+        "type": "string"
+      }
+    }
+  ]
+}

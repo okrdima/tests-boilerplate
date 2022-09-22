@@ -1,0 +1,155 @@
+{
+  "domain": "Categories",
+  "variant": "All",
+  "collectionName": "categories",
+  "singularDomain": "Category",
+  "loweringDomain": "category",
+  "parentDomains": [],
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["HeaderBreadcrumbs","Spinner"],
+      "source": "components",
+      "isDefault": false
+    },
+    {
+      "imports": ["PageWrapper","Row","Col"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams","useHistory"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["CategoryList","CategorySortMenu","CategoryFilter"],
+      "source": "domains/Category/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["useGetCategories"],
+      "source": "domains/Category/hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["Tooltip"],
+      "source": "antd",
+      "isDefault": false
+    },
+    {
+      "imports": ["UnorderedListOutlined","SortAscendingOutlined","AppstoreOutlined","PlusOutlined"],
+      "source": "@ant-design/icons",
+      "isDefault": false
+    },
+    {
+      "imports": ["useState","useMemo"],
+      "source": "react",
+      "isDefault": false
+    },
+    {
+      "imports": ["useFilter","useStateWithStorage"],
+      "source": "hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["Divider","Box"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["Spin","Popover","Button"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    }
+  ],
+  "component": "CategoryList",
+  "headingProps": {
+    "title": "Categories",
+    "titleSize": 3,
+    "marginBottom": 3,
+    "textAlign": "left"
+  },
+  "states" : [
+  ],
+  "computedProperties": [
+    {
+      "variables": ["showFilter"],
+      "hook": "useMemo",
+      "params": ["() => Boolean(filterData?.where?.length || categories?.length), [filterData?.where, categories]"],
+      "type": "default",
+      "isNotFunction": false
+    }
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["history"],
+      "hook": "useHistory",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["listView","setListView"],
+      "hook": "useStateWithStorage",
+      "params": ["false","'category-list-view'"],
+      "type": "array",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["filterVisibility","setFilterVisibility","filterButtonText","filterButtonIcon","onFilterButtonClick","filterData","setFilterData"],
+      "hook": "useFilter",
+      "params": ["'category-filter'"],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["params"],
+      "hook": "useParams",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["ref"],
+      "hook": "useMemo",
+      "params": ["() => filterData, [filterData]"],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["categories","loading"],
+      "hook": "useGetCategories",
+      "params": ["ref"],
+      "type": "array",
+      "isNotFunction": false
+    }
+  ],
+  "functions": [
+    {
+    "name": "handleBackButtonClick",
+    "params": [],
+    "body": "history.goBack()",
+    "inline": true
+    }
+  ],
+  "relationshipPages": [
+  ],
+  "dashboardMeta": {
+    "transformedComponents": [
+    ],
+    "importStrings": [
+    ]
+  }
+}

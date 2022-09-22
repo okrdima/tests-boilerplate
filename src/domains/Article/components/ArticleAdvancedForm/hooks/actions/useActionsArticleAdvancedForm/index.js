@@ -1,0 +1,3 @@
+import useActionsArticleAdvancedForm from './useActionsArticleAdvancedForm'
+
+export default useActionsArticleAdvancedForm

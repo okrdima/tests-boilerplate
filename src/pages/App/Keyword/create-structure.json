@@ -1,0 +1,78 @@
+{
+  "domain": "Keyword",
+  "variant": "Create",
+  "collectionName": "keywords",
+  "singularDomain": "Keyword",
+  "loweringDomain": "keyword",
+  "parentDomains": [],
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["HeaderBreadcrumbs","Spinner"],
+      "source": "components",
+      "isDefault": false
+    },
+    {
+      "imports": ["PageWrapper","Row","Col"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams","useHistory"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["KeywordAdvancedForm"],
+      "source": "domains/Keyword/components",
+      "isDefault": false
+    }
+  ],
+  "component": "KeywordAdvancedForm",
+  "headingProps": {
+    "title": "Keyword create",
+    "titleSize": 3,
+    "marginBottom": 3,
+    "textAlign": "left"
+  },
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["history"],
+      "hook": "useHistory",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    }
+  ],
+  "functions": [
+    {
+    "name": "handleBackButtonClick",
+    "params": [],
+    "body": "history.goBack()",
+    "inline": true
+    }
+  ],
+  "relationshipPages": [
+  ],
+  "dashboardMeta": {
+    "transformedComponents": [
+    ],
+    "importStrings": [
+    ]
+  }
+}

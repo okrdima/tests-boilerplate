@@ -1,0 +1,158 @@
+{
+  "domain": "Material",
+  "variant": "AdvancedForm",
+  "parentDomains": [],
+  "collectionName": "materials",
+  "singularDomain": "material",
+  "loweringDomain": "material", 
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["PropTypes"],
+      "source": "prop-types",
+      "isDefault": true
+    },
+    {
+      "imports": ["MaterialSimpleForm"],
+      "source": "domains/Material/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["Button, Title"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["Form"],
+      "source": "antd",
+      "isDefault": false
+    },
+    {
+      "imports": ["KEYS"],
+      "source": "__constants__",
+      "isDefault": false
+    },
+    {
+      "imports": ["useInitializeMaterialAdvancedForm","useActionsMaterialAdvancedForm"],
+      "source": "./hooks",
+      "isDefault": false
+    },
+    {
+      "imports": ["KeywordListWithCreate"],
+      "source": "domains/Keyword/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["CategorySelectWithCreate"],
+      "source": "domains/Category/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["MaterialTypeSimpleForm"],
+      "source": "domains/MaterialType/components",
+      "isDefault": false
+    }
+  ],
+  "components": [],
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["form"],
+      "hook": "useInitializeMaterialAdvancedForm",
+      "params": ["initialData"],
+      "type": "object",
+      "isNotFunction": false
+    }
+  ],
+  "useEffects": [
+  ],
+  "functions": [
+    {
+    "name": "handleKeyPress",
+    "params": ["e"],
+    "body": "if (e.key === KEYS.ENTER) { e.preventDefault(); onFinish() }",
+    "inline": false
+    }
+  ],
+  "fields": [
+    {
+    "fieldName": "url",
+    "fieldTitle": "Url",
+    "dataType": "string",
+    "transformedDataType": "string",
+    "isRequired": false,
+    "component": "",
+    "sourceProp": "children",
+    "visibleOnSimple": true,
+    "additionalProps": [],
+    "withLabel": true,
+    "isRecognized": true,
+    "priority": 10
+    }
+  ],
+  "propTypes": [
+    {
+      "name": "initialData",
+      "type": "object",
+      "isRequired": false
+    },
+    {
+      "name": "group",
+      "type": "array",
+      "isRequired": false
+    },
+    {
+      "name": "showTitle",
+      "type": "bool",
+      "isRequired": false
+    }
+  ],
+  "nestedComponents": [
+    {
+      "domain": "Keyword",
+      "variant": "List"
+    },
+    {
+      "domain": "Keyword",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "Category",
+      "variant": "List"
+    },
+    {
+      "domain": "Category",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "MaterialType",
+      "variant": "List"
+    },
+    {
+      "domain": "MaterialType",
+      "variant": "SimpleForm"
+    },
+    {
+      "domain": "MaterialType",
+      "variant": "AdvancedForm"
+    },
+    {
+      "domain": "Material",
+      "variant": "SimpleForm"
+    }
+  ]
+}

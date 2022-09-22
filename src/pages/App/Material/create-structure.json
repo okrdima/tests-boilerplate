@@ -1,0 +1,78 @@
+{
+  "domain": "Material",
+  "variant": "Create",
+  "collectionName": "materials",
+  "singularDomain": "Material",
+  "loweringDomain": "material",
+  "parentDomains": [],
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["HeaderBreadcrumbs","Spinner"],
+      "source": "components",
+      "isDefault": false
+    },
+    {
+      "imports": ["PageWrapper","Row","Col"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams","useHistory"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["MaterialAdvancedForm"],
+      "source": "domains/Material/components",
+      "isDefault": false
+    }
+  ],
+  "component": "MaterialAdvancedForm",
+  "headingProps": {
+    "title": "Material create",
+    "titleSize": 3,
+    "marginBottom": 3,
+    "textAlign": "left"
+  },
+  "states" : [
+  ],
+  "computedProperties": [
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["history"],
+      "hook": "useHistory",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    }
+  ],
+  "functions": [
+    {
+    "name": "handleBackButtonClick",
+    "params": [],
+    "body": "history.goBack()",
+    "inline": true
+    }
+  ],
+  "relationshipPages": [
+  ],
+  "dashboardMeta": {
+    "transformedComponents": [
+    ],
+    "importStrings": [
+    ]
+  }
+}

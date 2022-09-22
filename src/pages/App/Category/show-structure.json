@@ -1,0 +1,102 @@
+{
+  "domain": "Category",
+  "variant": "Show",
+  "collectionName": "categories",
+  "singularDomain": "Category",
+  "loweringDomain": "category",
+  "parentDomains": [],
+  "imports": [
+    {
+      "imports": ["useTranslations"],
+      "source": "contexts/Translation",
+      "isDefault": false
+    },
+    {
+      "imports": ["HeaderBreadcrumbs","Spinner"],
+      "source": "components",
+      "isDefault": false
+    },
+    {
+      "imports": ["PageWrapper","Row","Col"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    },
+    {
+      "imports": ["useParams","useHistory"],
+      "source": "react-router-dom",
+      "isDefault": false
+    },
+    {
+      "imports": ["CategoryAdvancedView"],
+      "source": "domains/Category/components",
+      "isDefault": false
+    },
+    {
+      "imports": ["EditOutlined"],
+      "source": "@ant-design/icons",
+      "isDefault": false
+    },
+    {
+      "imports": ["Button"],
+      "source": "@qonsoll/react-design",
+      "isDefault": false
+    }
+  ],
+  "component": "CategoryAdvancedView",
+  "headingProps": {
+    "title": "Category show",
+    "titleSize": 3,
+    "marginBottom": 3,
+    "textAlign": "left"
+  },
+  "states" : [
+  ],
+  "computedProperties": [
+    {
+      "variables": ["categoryId"],
+      "hook": "params",
+      "params": [],
+      "type": "object",
+      "isNotFunction": true
+    }
+  ],
+  "hooks": [
+    {
+      "variables": ["t"],
+      "hook": "useTranslations",
+      "params": [],
+      "type": "object",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["history"],
+      "hook": "useHistory",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    },
+    {
+      "variables": ["params"],
+      "hook": "useParams",
+      "params": [],
+      "type": "default",
+      "isNotFunction": false
+    }
+  ],
+  "functions": [
+    {
+    "name": "handleBackButtonClick",
+    "params": [],
+    "body": "history.goBack()",
+    "inline": true
+    }
+  ],
+  "relationshipPages": [
+  ],
+  "dashboardMeta": {
+    "transformedComponents": [
+    ],
+    "importStrings": [
+    ]
+  }
+}
