@@ -1,32 +1,19 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import {
-  Col,
-  Container,
-  Row,
-  Card,
-  Text,
-  Divider,
-  Title
-} from '@qonsoll/react-design'
-import { useHistory } from 'react-router-dom'
 import { CardDropdown, SelectableCard } from 'components'
+import { Col, Row, Title } from '@qonsoll/react-design'
+
+import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import { useSimpleFormActions } from 'hooks'
-import { useParams } from 'react-router-dom'
 
 const ArticleSimpleView = (props) => {
-  const { article, onSelect, onDelete, index, isSelected, actions } = props
+  const { article, onSelect, index, isSelected, actions } = props
 
-  // [ADDITIONAL_HOOKS]
-  const { t } = useTranslations()
   const history = useHistory()
   const { handleDelete: removeDocument } = useSimpleFormActions({
     document: article,
     collectionName: 'articles'
   })
-  const params = useParams()
 
-  // [HANDLERS]
   const handleOpen = () => {
     history.push(`/articles/${article?._id}`)
   }

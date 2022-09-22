@@ -6,8 +6,8 @@ import { useCallback, useMemo } from 'react'
 
 const CategorySortMenu = (props) => {
   const { filteredData, setFilteredData } = props
+  const { orderBy } = filteredData || {}
 
-  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
 
   const sortKeys = useMemo(
@@ -19,7 +19,6 @@ const CategorySortMenu = (props) => {
   )
 
   const sortButtonClick = (key) => {
-    const { orderBy } = filteredData
     const [field, direction] = orderBy || []
     const newSortField = sortKeys[key]
     if (field === newSortField) {
@@ -38,7 +37,6 @@ const CategorySortMenu = (props) => {
   const getSortIcon = useCallback(
     (key) => {
       const field = sortKeys[key]
-      const { orderBy } = filteredData
       const [currentSortField, direction] = orderBy || []
 
       if (field === currentSortField) {
@@ -51,7 +49,7 @@ const CategorySortMenu = (props) => {
         return <MinusOutlined />
       }
     },
-    [filteredData, sortKeys]
+    [orderBy, sortKeys]
   )
 
   const onClearSort = () => setFilteredData({ ...filteredData, orderBy: null })

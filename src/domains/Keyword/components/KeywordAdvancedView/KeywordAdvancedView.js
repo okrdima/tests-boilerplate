@@ -1,37 +1,14 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import { Tabs, Card } from 'antd'
-import { StickyContainer, Sticky } from 'react-sticky'
-import {
-  Container,
-  Row,
-  Col,
-  Spin,
-  Divider,
-  Text,
-  Title
-} from '@qonsoll/react-design'
-import { useParams, useHistory, useLocation } from 'react-router-dom'
+import { Col, Container, Row, Spin, Title } from '@qonsoll/react-design'
+
+import { Card } from 'antd'
 import { useDocument } from 'services/api/rest'
-import { useStateWithStorage } from 'hooks'
+import { useParams } from 'react-router-dom'
 
 const KeywordAdvancedView = (props) => {
-  // [COMPONENT_STATE_HOOKS]
-  const [activeTab, setActiveTab] = useStateWithStorage(
-    null,
-    'keyword-advanced-view-active-tab'
-  )
-
-  // [ADDITIONAL_HOOKS]
-  const { t } = useTranslations()
-  const history = useHistory()
   const params = useParams()
-  const location = useLocation()
-  const { keywordId } = params
-  const [keyword, loading] = useDocument({ ref: `keywords/${keywordId}` })
 
-  // [COMPUTED_PROPERTIES]
-  const { TabPane } = Tabs
+  const { keywordId } = params || {}
+  const [keyword, loading] = useDocument({ ref: `keywords/${keywordId}` })
 
   return loading ? (
     <Spin />

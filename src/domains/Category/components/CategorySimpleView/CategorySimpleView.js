@@ -1,32 +1,19 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import { CategorySimpleForm } from 'domains/Category/components'
-import {
-  Col,
-  Container,
-  Row,
-  Button,
-  Card,
-  Text,
-  Divider,
-  Title
-} from '@qonsoll/react-design'
+import { Button, Col, Row, Title } from '@qonsoll/react-design'
 import { CardDropdown, SelectableCard } from 'components'
-import { useSimpleFormActions } from 'hooks'
-import { useState, useEffect } from 'react'
-import { CloseOutlined, CheckOutlined } from '@ant-design/icons'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
+
+import { CategorySimpleForm } from 'domains/Category/components'
 import { Form } from 'antd'
-import { useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { useSimpleFormActions } from 'hooks'
+import { useState } from 'react'
 
 const CategorySimpleView = (props) => {
-  const { category, onSelect, onDelete, index, isSelected, actions } = props
+  const { category, onSelect, index, isSelected, actions } = props
 
-  // [COMPONENT_STATE_HOOKS]
   const [isEditing, setIsEditing] = useState(false)
   const [form] = Form.useForm()
 
-  // [ADDITIONAL_HOOKS]
-  const { t } = useTranslations()
   const {
     handleDelete: removeDocument,
     handleCancel,
@@ -38,9 +25,7 @@ const CategorySimpleView = (props) => {
     form,
     changeStateAction: setIsEditing
   })
-  const params = useParams()
 
-  // [HANDLERS]
   const handleDelete = () => removeDocument()
   const handleSelect = (e) => {
     e.stopPropagation()

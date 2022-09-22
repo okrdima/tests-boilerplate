@@ -1,13 +1,14 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import { Row, Col, Text, Button } from '@qonsoll/react-design'
 import { ArrowUpOutlined, MinusOutlined } from '@ant-design/icons'
+import { Button, Col, Row, Text } from '@qonsoll/react-design'
 import { useCallback, useMemo } from 'react'
+
+import PropTypes from 'prop-types'
+import { useTranslations } from 'contexts/Translation'
 
 const MaterialTypeSortMenu = (props) => {
   const { filteredData, setFilteredData } = props
+  const { orderBy } = filteredData || {}
 
-  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
 
   const sortKeys = useMemo(
@@ -19,7 +20,6 @@ const MaterialTypeSortMenu = (props) => {
   )
 
   const sortButtonClick = (key) => {
-    const { orderBy } = filteredData
     const [field, direction] = orderBy || []
     const newSortField = sortKeys[key]
     if (field === newSortField) {
@@ -38,7 +38,6 @@ const MaterialTypeSortMenu = (props) => {
   const getSortIcon = useCallback(
     (key) => {
       const field = sortKeys[key]
-      const { orderBy } = filteredData
       const [currentSortField, direction] = orderBy || []
 
       if (field === currentSortField) {
@@ -51,7 +50,7 @@ const MaterialTypeSortMenu = (props) => {
         return <MinusOutlined />
       }
     },
-    [filteredData, sortKeys]
+    [orderBy, sortKeys]
   )
 
   const onClearSort = () => setFilteredData({ ...filteredData, orderBy: null })

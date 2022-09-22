@@ -1,33 +1,21 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import {
-  Col,
-  Container,
-  Row,
-  Card,
-  Text,
-  Divider,
-  Title,
-  Link
-} from '@qonsoll/react-design'
-import { useHistory } from 'react-router-dom'
 import { CardDropdown, SelectableCard } from 'components'
+import { Col, Link, Row, Text, Title } from '@qonsoll/react-design'
+
+import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import { useSimpleFormActions } from 'hooks'
-import { useParams } from 'react-router-dom'
+import { useTranslations } from 'contexts/Translation'
 
 const MaterialSimpleView = (props) => {
-  const { material, onSelect, onDelete, index, isSelected, actions } = props
+  const { material, onSelect, index, isSelected, actions } = props
 
-  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
   const history = useHistory()
   const { handleDelete: removeDocument } = useSimpleFormActions({
     document: material,
     collectionName: 'materials'
   })
-  const params = useParams()
 
-  // [HANDLERS]
   const handleOpen = () => {
     history.push(`/materials/${material?._id}`)
   }
