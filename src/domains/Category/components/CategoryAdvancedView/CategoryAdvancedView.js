@@ -5,8 +5,7 @@ import { useDocument } from 'services/api/rest'
 import { useParams } from 'react-router-dom'
 
 const CategoryAdvancedView = (props) => {
-  const params = useParams()
-  const { categoryId } = params
+  const { categoryId } = useParams() || {}
   const [category, loading] = useDocument({ ref: `categories/${categoryId}` })
 
   return loading ? (

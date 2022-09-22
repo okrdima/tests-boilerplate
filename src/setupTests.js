@@ -4,9 +4,19 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 
+global.matchMedia =
+  global.matchMedia ||
+  function () {
+    return {
+      addListener: jest.fn(),
+      removeListener: jest.fn()
+    }
+  }
+
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useParams: jest
-    .fn()
-    .mockReturnValue({ environment: 'dev', service: 'fakeService' })
+  useParams: jest.fn().mockReturnValue({
+    environment: 'dev',
+    service: 'fakeService'
+  })
 }))

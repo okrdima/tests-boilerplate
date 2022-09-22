@@ -1,40 +1,27 @@
-import { useTranslations } from 'contexts/Translation'
-import PropTypes from 'prop-types'
-import { Tabs, Card } from 'antd'
-import { StickyContainer, Sticky } from 'react-sticky'
 import {
-  Container,
-  Row,
   Col,
-  Spin,
+  Container,
   Divider,
-  Text,
-  Link
+  Link,
+  Row,
+  Spin,
+  Text
 } from '@qonsoll/react-design'
-import { useParams, useHistory, useLocation } from 'react-router-dom'
-import { useDocument } from 'services/api/rest'
-import { useStateWithStorage } from 'hooks'
-import { MaterialKeywords } from 'domains/Material/components'
+
+import { Card } from 'antd'
 import { MaterialCategory } from 'domains/Material/components'
+import { MaterialKeywords } from 'domains/Material/components'
 import { MaterialMaterialType } from 'domains/Material/components'
+import { useDocument } from 'services/api/rest'
+import { useParams } from 'react-router-dom'
+import { useTranslations } from 'contexts/Translation'
 
 const MaterialAdvancedView = (props) => {
-  // [COMPONENT_STATE_HOOKS]
-  const [activeTab, setActiveTab] = useStateWithStorage(
-    null,
-    'material-advanced-view-active-tab'
-  )
-
-  // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
-  const history = useHistory()
   const params = useParams()
-  const location = useLocation()
-  const { materialId } = params
-  const [material, loading] = useDocument({ ref: `materials/${materialId}` })
+  const { materialId } = params || {}
 
-  // [COMPUTED_PROPERTIES]
-  const { TabPane } = Tabs
+  const [material, loading] = useDocument({ ref: `materials/${materialId}` })
 
   return loading ? (
     <Spin />
