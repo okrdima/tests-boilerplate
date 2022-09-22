@@ -1,4 +1,4 @@
-import { uploadFile } from 'services/storage'
+import { uploadFile } from 'services/api/firebase'
 
 /**
  * It takes a file object, uploads it to Firebase Storage, and returns the URL of the uploaded file

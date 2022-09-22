@@ -1,5 +1,5 @@
 import { COLLECTIONS } from '__constants__'
-import useCollection from 'hooks/useCollection'
+import { useCollection } from 'services/api/firebase'
 
 export default function useUsers(props) {
   const ref = COLLECTIONS.USERS

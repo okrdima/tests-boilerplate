@@ -1,6 +1,6 @@
-import firebase from 'firebase/compat/app'
 import { COLLECTIONS } from '__constants__'
-import { getId } from '../firestore'
+import firebase from 'firebase/compat/app'
+import { getId } from 'services/api/firebase'
 import { getLogProperties } from './'
 
 const createLog = async (type, collectionPath, data) => {

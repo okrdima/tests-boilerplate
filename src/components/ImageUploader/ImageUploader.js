@@ -4,7 +4,7 @@ import { memo, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Upload } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
-import { uploadFile } from 'services/storage'
+import { uploadImage } from 'helpers'
 import { useTranslations } from 'contexts/Translation'
 
 /**
@@ -30,7 +30,7 @@ const ImageUploader = (props) => {
   }
   const handleUpload = async ({ onSuccess, file }) => {
     if (withDirectUpload) {
-      const [url] = await uploadFile(file)
+      const [url] = await uploadImage(file)
       onChange(url)
     } else {
       onChange?.(file)

@@ -20,11 +20,13 @@ import breakpoints from '../../styles/breakpoints'
 import firebase from 'firebase/compat/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useStateWithStorage } from 'hooks'
+import { useTranslations } from 'contexts/Translation'
 
 const ASIDE_VISIBILITY = 'aside_visibility'
 
 const BoilerplateLayout = ({ children }) => {
   const [user, loading] = useAuthState(firebase.auth())
+  const { t } = useTranslations()
 
   /* If the user is authenticated, the component will render the children. Otherwise, it will render
   the fallback component. */
@@ -88,7 +90,7 @@ const BoilerplateLayout = ({ children }) => {
               asideLeftCollapsed={asideLeftCollapsed}
               onClick={handleAsideCollapse}>
               {asideLeftCollapsed ? (
-                <Tooltip placement="right" title="Show workspaces">
+                <Tooltip placement="right" title={t('Show menu')}>
                   <Button shape="circle">
                     <MenuOutlined />
                   </Button>
