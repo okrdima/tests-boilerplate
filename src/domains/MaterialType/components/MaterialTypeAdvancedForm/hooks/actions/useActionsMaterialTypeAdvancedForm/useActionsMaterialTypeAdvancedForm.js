@@ -23,7 +23,6 @@ const useActionsMaterialTypeAdvancedForm = ({ initialData, form } = {}) => {
   const prepareValues = async (values = {}, additionalValues = {}) => {
     const materialTypeId =
       initialData?.['materialType']?._id || getId('materialTypes')
-    const additionalReferences = { materialTypeId }
     const preparedValues = {
       _id: materialTypeId,
       ...additionalValues,

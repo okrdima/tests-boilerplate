@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { useLoading } from 'hooks'
 import { useDocument } from 'services/api/rest'
-import {} from 'domains/Keyword/hooks'
 
 const useGetKeywordInitialValues = (id) => {
   // [DATA_FETCH]

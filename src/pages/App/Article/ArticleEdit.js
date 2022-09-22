@@ -4,9 +4,6 @@ import { PageWrapper, Row, Col } from '@qonsoll/react-design'
 import { useParams, useHistory } from 'react-router-dom'
 import { ArticleAdvancedForm } from 'domains/Article/components'
 import { useGetArticleInitialValues } from 'domains/Article/hooks'
-import { useLoading } from 'hooks'
-import { useDocument } from 'services/api/rest'
-import { Spin } from '@qonsoll/react-design'
 
 const ArticleEdit = (props) => {
   // [ADDITIONAL_HOOKS]

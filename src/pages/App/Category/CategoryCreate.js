@@ -1,7 +1,7 @@
 import { useTranslations } from 'contexts/Translation'
-import { HeaderBreadcrumbs, Spinner } from 'components'
+import { HeaderBreadcrumbs } from 'components'
 import { PageWrapper, Row, Col } from '@qonsoll/react-design'
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { CategoryAdvancedForm } from 'domains/Category/components'
 
 const CategoryCreate = (props) => {

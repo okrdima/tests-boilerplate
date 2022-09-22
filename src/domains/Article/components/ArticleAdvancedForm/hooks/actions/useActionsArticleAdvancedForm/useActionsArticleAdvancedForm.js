@@ -7,7 +7,7 @@ import {
 
 import { Article } from 'models'
 import { message } from 'antd'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useTranslations } from 'contexts/Translation'
 
@@ -18,7 +18,6 @@ const useActionsArticleAdvancedForm = ({ initialData, form } = {}) => {
   // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
   const history = useHistory()
-  const params = useParams()
 
   const prepareValues = async (values = {}, additionalValues = {}) => {
     const articleId = initialData?.['article']?._id || getId('articles')

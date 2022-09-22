@@ -1,12 +1,8 @@
 import { useTranslations } from 'contexts/Translation'
 import { HeaderBreadcrumbs, Spinner } from 'components'
 import { PageWrapper, Row, Col } from '@qonsoll/react-design'
-import { useParams, useHistory } from 'react-router-dom'
-import {
-  KeywordList,
-  KeywordSortMenu,
-  KeywordFilter
-} from 'domains/Keyword/components'
+import { useHistory } from 'react-router-dom'
+import { KeywordList, KeywordSortMenu } from 'domains/Keyword/components'
 import { useGetKeywords } from 'domains/Keyword/hooks'
 import { Tooltip } from 'antd'
 import {
@@ -15,10 +11,10 @@ import {
   AppstoreOutlined,
   PlusOutlined
 } from '@ant-design/icons'
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useFilter, useStateWithStorage } from 'hooks'
 import { Divider, Box } from '@qonsoll/react-design'
-import { Spin, Popover, Button } from '@qonsoll/react-design'
+import { Popover, Button } from '@qonsoll/react-design'
 
 const KeywordsAll = (props) => {
   // [ADDITIONAL_HOOKS]
@@ -28,16 +24,7 @@ const KeywordsAll = (props) => {
     false,
     'keyword-list-view'
   )
-  const {
-    filterVisibility,
-    setFilterVisibility,
-    filterButtonText,
-    filterButtonIcon,
-    onFilterButtonClick,
-    filterData,
-    setFilterData
-  } = useFilter('keyword-filter')
-  const params = useParams()
+  const { filterData, setFilterData } = useFilter('keyword-filter')
   const ref = useMemo(() => filterData, [filterData])
   const [keywords, loading] = useGetKeywords(ref)
 

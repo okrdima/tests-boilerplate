@@ -22,7 +22,6 @@ const useActionsCategoryAdvancedForm = ({ initialData, form } = {}) => {
 
   const prepareValues = async (values = {}, additionalValues = {}) => {
     const categoryId = initialData?.['category']?._id || getId('categories')
-    const additionalReferences = { categoryId }
     const preparedValues = {
       _id: categoryId,
       ...additionalValues,

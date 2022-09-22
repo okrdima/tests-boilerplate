@@ -4,9 +4,6 @@ import { PageWrapper, Row, Col } from '@qonsoll/react-design'
 import { useParams, useHistory } from 'react-router-dom'
 import { CategoryAdvancedForm } from 'domains/Category/components'
 import { useGetCategoryInitialValues } from 'domains/Category/hooks'
-import { useLoading } from 'hooks'
-import { useDocument } from 'services/api/rest'
-import { Spin } from '@qonsoll/react-design'
 
 const CategoryEdit = (props) => {
   // [ADDITIONAL_HOOKS]

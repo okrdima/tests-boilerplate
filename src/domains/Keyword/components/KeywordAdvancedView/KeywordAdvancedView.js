@@ -4,10 +4,10 @@ import { Card } from 'antd'
 import { useDocument } from 'services/api/rest'
 import { useParams } from 'react-router-dom'
 
-const KeywordAdvancedView = (props) => {
+const KeywordAdvancedView = () => {
   const params = useParams()
 
-  const { keywordId } = params || {}
+  const { keywordId } = params
   const [keyword, loading] = useDocument({ ref: `keywords/${keywordId}` })
 
   return loading ? (

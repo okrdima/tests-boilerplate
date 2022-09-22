@@ -1,12 +1,8 @@
 import { useTranslations } from 'contexts/Translation'
 import { HeaderBreadcrumbs, Spinner } from 'components'
 import { PageWrapper, Row, Col } from '@qonsoll/react-design'
-import { useParams, useHistory } from 'react-router-dom'
-import {
-  CategoryList,
-  CategorySortMenu,
-  CategoryFilter
-} from 'domains/Category/components'
+import { useHistory } from 'react-router-dom'
+import { CategoryList, CategorySortMenu } from 'domains/Category/components'
 import { useGetCategories } from 'domains/Category/hooks'
 import { Tooltip } from 'antd'
 import {
@@ -15,10 +11,10 @@ import {
   AppstoreOutlined,
   PlusOutlined
 } from '@ant-design/icons'
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useFilter, useStateWithStorage } from 'hooks'
 import { Divider, Box } from '@qonsoll/react-design'
-import { Spin, Popover, Button } from '@qonsoll/react-design'
+import { Popover, Button } from '@qonsoll/react-design'
 
 const CategoriesAll = (props) => {
   // [ADDITIONAL_HOOKS]
@@ -28,16 +24,7 @@ const CategoriesAll = (props) => {
     false,
     'category-list-view'
   )
-  const {
-    filterVisibility,
-    setFilterVisibility,
-    filterButtonText,
-    filterButtonIcon,
-    onFilterButtonClick,
-    filterData,
-    setFilterData
-  } = useFilter('category-filter')
-  const params = useParams()
+  const { filterData, setFilterData } = useFilter('category-filter')
   const ref = useMemo(() => filterData, [filterData])
   const [categories, loading] = useGetCategories(ref)
 

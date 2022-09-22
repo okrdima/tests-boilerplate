@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { useLoading } from 'hooks'
 import { useDocument } from 'services/api/rest'
-import {} from 'domains/Category/hooks'
 
 const useGetCategoryInitialValues = (id) => {
   // [DATA_FETCH]

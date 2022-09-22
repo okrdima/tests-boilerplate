@@ -8,7 +8,7 @@ import { useDocument } from 'services/api/rest'
 import { useStateWithStorage } from 'hooks'
 import { useTranslations } from 'contexts/Translation'
 
-const ArticleAdvancedView = (props) => {
+const ArticleAdvancedView = () => {
   const [activeTab, setActiveTab] = useStateWithStorage(
     null,
     'article-advanced-view-active-tab'
@@ -17,7 +17,7 @@ const ArticleAdvancedView = (props) => {
   const { t } = useTranslations()
   const history = useHistory()
   const params = useParams()
-  const { articleId } = params || {}
+  const { articleId } = params
 
   const [article, loading] = useDocument({ ref: `articles/${articleId}` })
 

@@ -10,7 +10,7 @@ import useActionsMaterialTypeSimpleForm from 'domains/MaterialType/components/Ma
 
 import { Material } from 'models'
 import { message } from 'antd'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useTranslations } from 'contexts/Translation'
 
@@ -21,7 +21,6 @@ const useActionsMaterialAdvancedForm = ({ initialData, form } = {}) => {
   // [ADDITIONAL_HOOKS]
   const { t } = useTranslations()
   const history = useHistory()
-  const params = useParams()
   const {
     prepareValues: prepareMaterialTypeValues,
     validateForm: validateMaterialTypeForm

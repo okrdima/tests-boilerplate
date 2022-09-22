@@ -7,7 +7,6 @@ import {
   SettingFilled,
   BarChartOutlined
 } from '@ant-design/icons'
-import { Icon } from '@qonsoll/icons'
 import { LanguageSelect } from 'domains/Translation/components'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useTranslations } from 'contexts/Translation'

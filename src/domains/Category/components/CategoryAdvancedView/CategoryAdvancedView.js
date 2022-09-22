@@ -4,7 +4,7 @@ import { Card } from 'antd'
 import { useDocument } from 'services/api/rest'
 import { useParams } from 'react-router-dom'
 
-const CategoryAdvancedView = (props) => {
+const CategoryAdvancedView = () => {
   const { categoryId } = useParams()
   const [category, loading] = useDocument({ ref: `categories/${categoryId}` })
 

@@ -2,7 +2,7 @@ import { useTranslations } from 'contexts/Translation'
 import PropTypes from 'prop-types'
 import { MaterialTypeSimpleForm } from 'domains/MaterialType/components'
 import { Button, Title } from '@qonsoll/react-design'
-import { Form, Input } from 'antd'
+import { Form } from 'antd'
 import { KEYS } from '__constants__'
 import {
   useInitializeMaterialTypeAdvancedForm,

@@ -4,8 +4,8 @@ import { Card } from 'antd'
 import { useDocument } from 'services/api/rest'
 import { useParams } from 'react-router-dom'
 
-const MaterialTypeAdvancedView = (props) => {
-  const { materialTypeId } = useParams() || {}
+const MaterialTypeAdvancedView = () => {
+  const { materialTypeId } = useParams()
 
   const [materialType, loading] = useDocument({
     ref: `materialTypes/${materialTypeId}`

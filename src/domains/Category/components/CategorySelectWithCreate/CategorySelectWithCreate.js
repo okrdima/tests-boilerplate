@@ -13,7 +13,6 @@ import { Form, message } from 'antd'
 import { CategorySelect, CategorySimpleForm } from 'domains/Category/components'
 import { PlusOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import { Category } from 'models'
 import useActionsCategorySimpleForm from 'domains/Category/components/CategorySimpleForm/hooks/useActionsCategorySimpleForm'
 
 const CategorySelectWithCreate = (props) => {

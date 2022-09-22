@@ -2,7 +2,6 @@ import { useTranslations } from 'contexts/Translation'
 import PropTypes from 'prop-types'
 import { Row, Col, Text } from '@qonsoll/react-design'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { ArticleSimpleView } from 'domains/Article/components'
 
 const ArticleList = (props) => {

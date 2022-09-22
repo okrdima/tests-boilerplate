@@ -16,10 +16,10 @@ import { useDocument } from 'services/api/rest'
 import { useParams } from 'react-router-dom'
 import { useTranslations } from 'contexts/Translation'
 
-const MaterialAdvancedView = (props) => {
+const MaterialAdvancedView = () => {
   const { t } = useTranslations()
   const params = useParams()
-  const { materialId } = params || {}
+  const { materialId } = params
 
   const [material, loading] = useDocument({ ref: `materials/${materialId}` })
 

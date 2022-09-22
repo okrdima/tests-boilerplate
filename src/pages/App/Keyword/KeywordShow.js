@@ -10,7 +10,7 @@ import { useTranslations } from 'contexts/Translation'
 const KeywordShow = (props) => {
   const { t } = useTranslations()
   const history = useHistory()
-  const params = useParams()
+  const { keywordId } = useParams()
 
   const headingProps = {
     title: t('Keyword show'),
@@ -18,7 +18,6 @@ const KeywordShow = (props) => {
     marginBottom: 3,
     textAlign: 'left'
   }
-  const { keywordId } = params
 
   const handleBackButtonClick = () => history.goBack()
 

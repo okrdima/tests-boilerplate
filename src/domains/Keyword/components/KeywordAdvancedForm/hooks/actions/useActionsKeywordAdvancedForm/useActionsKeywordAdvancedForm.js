@@ -22,7 +22,6 @@ const useActionsKeywordAdvancedForm = ({ initialData, form } = {}) => {
 
   const prepareValues = async (values = {}, additionalValues = {}) => {
     const keywordId = initialData?.['keyword']?._id || getId('keywords')
-    const additionalReferences = { keywordId }
     const preparedValues = {
       _id: keywordId,
       ...additionalValues,

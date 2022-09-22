@@ -4,9 +4,6 @@ import { PageWrapper, Row, Col } from '@qonsoll/react-design'
 import { useParams, useHistory } from 'react-router-dom'
 import { KeywordAdvancedForm } from 'domains/Keyword/components'
 import { useGetKeywordInitialValues } from 'domains/Keyword/hooks'
-import { useLoading } from 'hooks'
-import { useDocument } from 'services/api/rest'
-import { Spin } from '@qonsoll/react-design'
 
 const KeywordEdit = (props) => {
   // [ADDITIONAL_HOOKS]

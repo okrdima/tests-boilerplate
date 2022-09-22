@@ -4,9 +4,6 @@ import { PageWrapper, Row, Col } from '@qonsoll/react-design'
 import { useParams, useHistory } from 'react-router-dom'
 import { MaterialTypeAdvancedForm } from 'domains/MaterialType/components'
 import { useGetMaterialTypeInitialValues } from 'domains/MaterialType/hooks'
-import { useLoading } from 'hooks'
-import { useDocument } from 'services/api/rest'
-import { Spin } from '@qonsoll/react-design'
 
 const MaterialTypeEdit = (props) => {
   // [ADDITIONAL_HOOKS]
