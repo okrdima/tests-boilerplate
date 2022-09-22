@@ -37,10 +37,6 @@ const KeywordsAll = (props) => {
     marginBottom: 3,
     textAlign: 'left'
   }
-  const showFilter = useMemo(
-    () => Boolean(filterData?.where?.length || keywords?.length),
-    [filterData?.where, keywords]
-  )
 
   // [HANDLERS]
   const handleBackButtonClick = () => history.goBack()
